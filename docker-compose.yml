@@ -1,0 +1,36 @@
+
+version: '3.7'
+services:
+  api:
+    image: openjdk:11
+    container_name: api
+    stdin_open: true
+    volumes:
+      - .:/app
+      - gradle_cache:/root/.gradle
+    ports:
+      - "8080:8080"
+      - "5005:5005"
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_USER: api_user
+      DB_PASSWORD: api_password
+    depends_on:
+      - db
+    working_dir: /app
+    command: ["/app/gradlew", "bootRun"]
+  db:
+    image: postgres:11.3
+    container_name: postgres
+    environment:
+      PGDATA: /var/lib/postgresql/data/case_data
+      POSTGRES_USER: api_user
+      POSTGRES_PASSWORD: api_password
+    volumes:
+      - postgres_db:/var/lib/postgresql/data/case_data
+    ports:
+      - "5440:5432"
+volumes:
+  postgres_db:
+  gradle_cache:

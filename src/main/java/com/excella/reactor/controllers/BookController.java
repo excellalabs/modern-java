@@ -81,4 +81,18 @@ public class BookController {
         if (bookIds.isEmpty()) return Flux.empty();
         return MonoUtils.retrieveAsList(() -> bookRepository.findAllById(bookIds));
     }
+
+    // @GetMapping(value = "/search", name = "For testing", produces = "application/json")
+    // Mono<Boolean> testEndpoint(@RequestParam String q) {
+    //     var booltest = boolTest().subscribe().equals(true);
+    //     Mono.jus
+        
+    //     return boolTest
+    //             .doOnSubscribe(result -> log.info("Searching for books using query: {}", q));
+    // }
+
+    private Mono<Boolean> boolTest() {
+        return Mono.just(false);
+    }
+
 }

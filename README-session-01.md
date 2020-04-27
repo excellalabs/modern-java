@@ -213,9 +213,10 @@ A) Create a new Spring Boot app with Reactor as a dependency and get it running
     
 B) Refactor redundant code using predicates and lambdas: 
 
-The client just asked you to change their production system to make it easier to read and maintain. They asked you to change some code in their e-commerce store that filters fruit they sell. 
+The client just asked you to change their production system. They asked you to change some code in their e-commerce store that filters fruit they sell, to make it easier to read and maintain since they're changing in more because of COVID-19. 
 
 Change some existing code that filters apples by color and weight using two separate functions, so one function can do both. 
     
 1. Open the test class `Chapter01Exercises` & ensure the tests pass, located in `src/test/java/com/excella/reactor/chapter01`
-1. Refactor the `filterByColor` and `filterByWeight` functions into one function, passing the filtering criteria as a parameter. Get the tests to pass. The solution is located in `Chapter01ExercisesCOMPLETED`. 
+1. Refactor the `filterByColor` and `filterByWeight` functions that are in there into one function, passing the filtering criteria as a parameter. 
+1. Get the tests to pass. The solution is located in `Chapter01ExercisesCOMPLETED`. 

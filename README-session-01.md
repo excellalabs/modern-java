@@ -1,4 +1,4 @@
-# Session 1
+# Session 1 & 2
 
 ## Club Intro
    
@@ -192,8 +192,11 @@ A) Create a new Spring Boot app with Reactor as a dependency and get it running
     - Running tests: `./gradlew test`
 
     
-B) Write a few tests to do basic operations from the chapter: 
+B) Refactor redundant code using predicates and lambdas: 
+
+The client just asked you to change their production system to make it easier to read and maintain. They asked you to change some code in their e-commerce store that filters fruit they sell. 
+
+Change some existing code that filters apples by color and weight using two separate functions, so one function can do both. 
     
-Filter a list of strigs with code you pass as argument: 
-- Make 2 predicates, first that filters by letter, and next that filters by string length
-- Use those predicates as arguments to filter a list via the Java streams API
+1. Open the test class `Chapter01Exercises` & ensure the tests pass, located in `src/test/java/com/excella/reactor/chapter01`
+1. Refactor the `filterByColor` and `filterByWeight` functions into one function, passing the filtering criteria as a parameter. Get the tests to pass. The solution is located in `Chapter01ExercisesCOMPLETED`. 

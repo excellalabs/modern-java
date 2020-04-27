@@ -42,6 +42,8 @@ public class ReactorApplicationTests {
 				.filter(x-> x == 2L).toArray().length == 1);
 	}
 
+	// EXERCISES 1.1: Pass code as parameters
+
 	@Test
 	public void Exercise_1_1_Predicate_Chain(){
 		Predicate<String> startsWithAPredicate =  str -> str.startsWith("A");
@@ -70,4 +72,28 @@ public class ReactorApplicationTests {
 		assertTrue(result.contains("Alexander"));
 	}
 
+
+//	@Test
+//	public void Exercise_1__1_b_Operators_With_Projection() {
+//		List<Integer> ints = Arrays.asList(1,2,3);
+//
+//		ints.stream().map(x-> x*2).collect();
+//	}
+
+	// TEST CASES
+	// filter
+
+//	public static List<Apple> filterGreenApples(List<Apple> inventory) {
+//		List<Apple> result = new ArrayList<>();                           1
+//		for (Apple apple: inventory){
+//			if (GREEN.equals(apple.getColor())) {                         2
+//				result.add(apple);
+//			}
+//		}
+//		return result;
+//	}
+
+
+
 }
+

@@ -1,5 +1,7 @@
 # Session 1 & 2
 
+# Session 1 
+
 ## Club Intro
    
 - Review [Club Overview](README.md)
@@ -92,29 +94,43 @@ File[] hiddenFiles = new File(".").listFiles(File::isHidden);
 
 - Example: 1.3.2
 
-### Lambdas
+### Lambdas (anonymous functions)
 
-Example: 1.3.3
+1.3.3
 
 - You don’t need to write a method definition that’s used only once
 - The code is crisper and clearer because you don’t need to search to find the code you’re passing. 
 - If such a lambda exceeds a few lines in length (so that its behavior isn’t instantly clear), you should instead use a method reference to a method with a descriptive name instead of using an anonymous lambda. Code clarity should be your guide.
 
-## Streams - addresses boilerplate and obscure code, and difficulty exploiting multicore
+# Session 2 
 
-Java 8 streams provide access to sequences of data items. It generalizes many aspects of collections, but often enables more readable code and allows elements of a stream to be processed in parallel.
+## Housekeeping
+
+- Rounds
+- RSVP on eventbot, you can download ics to put series on your calendar
+- Q: exercises in tests, what would be useful in building out in a full app?
+- Next week: hack session 
+- Recap of last session. Any items you walk to talk through?
+
+## Streams 
+
+Streams, introduced in Java 8, address boilerplate and obscure code, and difficulty exploiting multicore.
+
+They provide access to sequences of data items. They generalize many aspects of collections, but often enables more readable code and allows elements of a stream to be processed in parallel.
+
+*Key Concepts*
 
 - Resembles the way you might think in database query languages—you express what you want in a higher-level manner, and the implementation (here the Streams library) chooses the best low-level execution mechanism
 - As a result, it avoids the need for you to write code that uses synchronized, which is not only highly error-prone but also more expensive than you may realize on multicore CPUs
 - Higher level of abstraction
-- Almost for free avoid threads
+- Get concurrency without coding with threads, almost for free
 
 *Details:*
 
-- Example: 1.4
-- Muilticore computers
+- 1.4
+- Multicore computers
 - Multithreading is difficult
-- Boilerplate - streams operators like filter and group are common so benefit from being standardized, 
+- Boilerplate - streams operators like filter and group are common so benefit from being standardized 
 
 ### Parallelism & no shared mutable data 
 
@@ -129,13 +145,14 @@ The no-shared-mutable-data requirement means that a method is perfectly describe
 
 These are cornerstones of what’s generally described as the paradigm of functional programming.
 
-## Default methods
+## Modules & default methods
 
 Historically, Java had little support for systems built from components, apart from a JAR file containing a set of Java packages with no particular structure.
 
 Evolving interfaces to such packages was hard—changing a Java interface meant changing every class that implements it
 
-- Java 9 provides a module system that provide you with syntax to define modules containing collections of packages—and keep much better control over visibility and namespaces. Modules enrich a simple JAR-like component with structure, both as user documentation and for machine checking;
+- Java 9 provides a module system that provide you with syntax to define modules containing collections of packages—and keep much better control over visibility and namespaces. 
+    - Modules enrich a simple JAR-like component with structure, both as user documentation and for machine checking;
 
 - Java 8 added default methods to support evolvable interfaces, so these things could be added without having to change all existing classes that use them. 
     - An interface can now contain method signatures for which an implementing class doesn’t provide an implementation. 
@@ -158,7 +175,9 @@ Common functional languages provide more constructs to help the programming, inc
 
  Tony Hoare, one of the giants of computer science, said this in a presentation at QCon London 2009:
 
-    I call it my billion-dollar mistake. It was the invention of the null reference in 1965. . . .I couldn’t resist the temptation to put in a null reference, simply because it was so easy to implement
+    I call it my billion-dollar mistake. It was the invention of the null reference in 1965.
+    
+    I couldn’t resist the temptation to put in a null reference, simply because it was so easy to implement.
     
 
 Optionals
@@ -169,8 +188,8 @@ Optionals
 ### Pattern Matching
 
 Normally you'd use if/else or switch statements
-- For more complex data types, pattern matching can express programming ideas more concisely compared to using if-then-else
 - Allows using against many more data types
+- For more complex data types, pattern matching can express programming ideas more concisely compared to using if-then-else
 - Need third-party library (i.e. Vavr) to get fully pattern matching in Java
 
 Example: under 1.6

@@ -8,3 +8,7 @@ bin
 .envrc
 .java-version
 bin
+
+# VS Code
+.settings
+.vscode

@@ -1,6 +1,6 @@
-# Session 1 & 2
+# Chapter 1
 
-# Session 1 
+# Session 1
 
 ## Club Intro
    
@@ -10,7 +10,7 @@
 - Presenting
 - Github repo: https://github.com/excellalabs/modern-java
 
-## Summary 
+## Summary - Chapter 1
 
 Chapter 1: History and an overview of the paradigm shifts
 
@@ -194,17 +194,28 @@ Normally you'd use if/else or switch statements
 
 Example: under 1.6
 
-## Summary 
+# Session 3 
+
+## House cleaning 
+
+- Welcome anyone new
+- Survey results
+- Next time: 
+    - Chapters 2 & 3 with reduced time on concepts (behavior parameterization, lambda expressions, 105 minutes)
+    - Deep into bahavior parameterization coding? Incrementally? Real world problem?
+- Recap of last session (2nd half of chapter 1 - Java streams, modules, default methods, optionals, pattern matchinbg)
+
+## Summary of Chapter 1
 
 See book's last-page summary bullets
 
 # Exercises
 
-A) Create a new Spring Boot app with Reactor as a dependency and get it running
+A) Get the Spring Boot starter app (with exercises) running that's included in this repo: 
     
 1. Clone `https://github.com/excellalabs/modern-java`
-1. Install [docker](https://docs.docker.com/engine/installation/) and [docker-compose](https://docs.docker.com/compose/install/)
-1. Running the application
+1. Install [docker](https://www.docker.com/products/docker-desktop) 
+1. Make sure you can do the following:
 
     - Start docker container: `./run_app.sh`
     - Compile the app: `./gradlew clean build`
@@ -220,3 +231,5 @@ Change some existing code that filters apples by color and weight using two sepa
 1. Open the test class `Chapter01Exercises` & ensure the tests pass, located in `src/test/java/com/excella/reactor/chapter01`
 1. Refactor the `filterByColor` and `filterByWeight` functions that are in there into one function, passing the filtering criteria as a parameter. 
 1. Get the tests to pass. The solution is located in `Chapter01ExercisesCOMPLETED`. 
+
+BONUS: If you're done already, try `Quiz 2.2` in chapter 2 to see if you like that approach more

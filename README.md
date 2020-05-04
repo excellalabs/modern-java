@@ -32,4 +32,5 @@ Suggested format:
     - key points & into their details
     - exercises / try out in app
 
-[Session 1](README-session-01.md)
+[Chapter 1 (sessions 1, 2 & 3)](README-chapter-01.md)
+[Chapter 2 & 3](README-chapter-02-03.md)

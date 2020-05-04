@@ -2,6 +2,7 @@
 .gradle
 out
 build
+bin
 *.iml
 .DS_Store
 .envrc

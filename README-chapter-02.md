@@ -52,7 +52,9 @@ Foreshadow: with lambdas, you don't have to wrap the criteria in a predicate. Yo
 
 With predicates, you're forced to declare multiple classes that implement predicate interface, and then instantiate several predicate objects that you allocate only once.
 
-*Quiz 2.1* 
+### Exercise 
+
+Quiz 2.1
 
 Listing 2.1 - you can do better. The next evolution is anonymous functions (if not entirely satisfactory).
 

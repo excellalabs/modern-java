@@ -33,4 +33,4 @@ Suggested format:
     - exercises / try out in app
 
 * [Chapter 1 (sessions 1, 2 & 3)](README-chapter-01.md)
-* [Chapter 2 & 3](README-chapter-02-03.md)
+* [Chapter 2](README-chapter-02.md)

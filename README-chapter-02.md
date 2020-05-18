@@ -1,13 +1,13 @@
 # Session 4
 
-## Housekeeping
+## Agenda
 
 - Welcome anyone new, survey results (remember to record)
 - Recap of last session
     - 2nd half of chapter 1 - Java streams, modules, default methods, optionals, pattern matching
     - Recap exercise 1
 - Review chapter 2, what struck people most?
-- Exercises
+- Exercise
 - Next time 
     - ? - Deep into bahavior parameterization coding? Incrementally? Real world problem?
 
@@ -15,14 +15,14 @@
 
 ## Summary: Passing code with behavior parameterization
 
-    - Take apart verbose code to efficiently utilize bahavior parameterization
-    - Dives deep via small steps towards exercise we did, from using the old way to predicates
-    - Foreshadowing lambdas
-    - Code evolution steps:
-        - old ways - highly verbose, redundant code
-        - predicates - solves much of redundant code issue, not all
-        - anonymous functions - solves more of the redundat code issue, highly verbose
-        - lambdas - solves the above
+- Take apart verbose code to efficiently utilize bahavior parameterization
+- Dives deep via small steps towards exercise we did, from using the old way to predicates
+- Foreshadowing lambdas
+- Code evolution steps:
+    - old ways - highly verbose, redundant code
+    - predicates - solves much of redundant code issue, not all
+    - anonymous functions - solves more of the redundat code issue, highly verbose
+    - lambdas - solves the above
 
 ## Details: 
 
@@ -34,11 +34,11 @@
 
 Analogy: goAndBuy to goAndDo
 
-Example of evolving code to be more flexible for changing requirements
+Examples of evolving code to be more flexible for changing requirements
 
-2.1 - Gradually improving into our first exercise
-2.1.3 - we've all probably seen this
-2.2 - find a better level of abstraction
+- 2.1 - Gradually improving into our first exercise
+- 2.1.3 - we've all probably seen this
+- 2.2 - find a better level of abstraction
 
 *Predicates*
 
@@ -48,11 +48,11 @@ Separate the logic of iterating the collection inside the filter-Apples method w
 
 Foreshadow: with lambdas, you don't have to wrap the criteria in a predicate. You can pass it directly.
 
-*Quiz 2.1* 
-
 *Anonymous Functions*
 
 With predicates, you're forced to declare multiple classes that implement predicate interface, and then instantiate several predicate objects that you allocate only once.
+
+*Quiz 2.1* 
 
 Listing 2.1 - you can do better. The next evolution is anonymous functions (if not entirely satisfactory).
 
@@ -67,9 +67,6 @@ Anonymous classes
 
 2.3.2 for example, creates predicate on the fly using an anonymous function
 
-## EXERCISE: Evolve to anonymous functions
-
-
 Lambdas
 
 Language designers solved the problems with anonymous functions by introducing lambda expressions, a more concise way to pass code.
@@ -82,20 +79,8 @@ You could genericize the type you're passing in code for (so not just apples)
 
 2.3.4 examples - You’ve managed to find the sweet spot between flexibility and conciseness, which wasn’t possible prior to Java 8!
 
-## EXERCISE: Real world examples
-
 Summary bullets
 
-### Chapter 3
+### Exercise
 
-* Chapter 3: apply lambdas to further tackle verbosity
-
-
-Lambdas in a nutshell
-The execute-around pattern
-Functional interfaces, type inference
-Method references
-Composing lambdas
-
-NUTSHELL: A kind of anonymous function: it doesn’t have a name, but it has a list of parameters, a body, a return type, and also possibly a list of exceptions that can be thrown.
-
+Refactor Quiz 2.1 to anonymous functions

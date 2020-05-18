@@ -1,4 +1,4 @@
-package com.excella.reactor.chapter01;
+package com.excella.reactor.domain;
 
 public class Apple {
 

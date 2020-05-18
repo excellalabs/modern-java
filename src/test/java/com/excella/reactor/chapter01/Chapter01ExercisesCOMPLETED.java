@@ -9,9 +9,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.function.Predicate;
 
-import static junit.framework.TestCase.assertTrue;
+import com.excella.reactor.domain.Apple;
+
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
 
 @RunWith(SpringRunner.class)
 public class Chapter01ExercisesCOMPLETED {

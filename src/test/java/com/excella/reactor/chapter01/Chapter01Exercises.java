@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import com.excella.reactor.domain.Apple;
+
 import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringRunner.class)

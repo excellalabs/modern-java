@@ -1,5 +1,6 @@
 /* 
-INSTRUCTIONS: Quiz 2.1
+INSTRUCTIONS: Quiz 2.1 - passing code using discussed concepts, without any help (strategy pattern).
+We will later refactor this to use lambdas.
 
 The below is the starting code from the book Quiz 2.1. Refer to the instructions there. 
 

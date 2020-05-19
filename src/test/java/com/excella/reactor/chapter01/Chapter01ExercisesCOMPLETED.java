@@ -22,9 +22,9 @@ public class Chapter01ExercisesCOMPLETED {
 			new Apple(120, "red")
 	);
 
-	public static List<Apple> filterApples(List<Apple> inventory, Predicate<Apple> p) {
-		List<Apple> result = new ArrayList<>();
-		for (Apple apple : inventory) {
+	public static List<Apple> filterApples(final List<Apple> inventory, final Predicate<Apple> p) {
+		final List<Apple> result = new ArrayList<>();
+		for (final Apple apple : inventory) {
 			if (p.test(apple)) {
 				result.add(apple);
 			}
@@ -35,10 +35,10 @@ public class Chapter01ExercisesCOMPLETED {
 	/// Tests
 	@Test
 	public void exercise01_filter_apples_by_color() {
-		var result = filterApples(apples, (Apple a ) -> a.getColor().equals("green"));
+		final var result = filterApples(apples, apple -> apple.getColor().equals("green"));
 
-		var wrongResults = new ArrayList<Apple>();
-		for (Apple apple : result) {
+		final var wrongResults = new ArrayList<Apple>();
+		for (final Apple apple : result) {
 			if (!apple.getColor().equals("green")) {
 				wrongResults.add(apple);
 			}
@@ -49,10 +49,10 @@ public class Chapter01ExercisesCOMPLETED {
 
 	@Test
 	public void exercise01_filter_apples_by_weight() {
-		var result = filterApples(apples, (Apple a) -> a.getWeight() > 150);
+		final var result = filterApples(apples, (Apple a) -> a.getWeight() > 150);
 
-		var wrongResults = new ArrayList<Apple>();
-		for (Apple apple : result) {
+		final var wrongResults = new ArrayList<Apple>();
+		for (final Apple apple : result) {
 			if (apple.getWeight() <= 150) {
 				wrongResults.add(apple);
 			}

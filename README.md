@@ -34,3 +34,14 @@ Suggested format:
 
 * [Chapter 1 (sessions 1, 2 & 3)](README-chapter-01.md)
 * [Chapter 2](README-chapter-02.md)
+* [Chapter 3](README-chapter-03.md)
+
+## Environment Setup
+
+1. Install [docker](https://www.docker.com/products/docker-desktop) 
+1. Clone this repo (`https://github.com/excellalabs/modern-java`)
+1. Make sure you can do the following:
+
+    - Start docker container: `./run_app.sh`
+    - Compile the app: `./gradlew clean build`
+    - Running tests: `./gradlew test`

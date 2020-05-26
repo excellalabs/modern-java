@@ -1,11 +1,17 @@
-# Chapter 3: Apply lambdas to further tackle verbosity
-
-# Session 5
+## *Session 5*
 
 Agenda
 
-- Recap last session, exercise
-- 
+- **Welcome & Recap** 
+    - Last session: lambdas in chapter 2, exercise (behavior parameterization evolution, lambdas are the current solution)
+- **Run through & discuss** - Chapter 3 - Lambda Expressions
+- **Exercises** - lambdas and functional interface visual quizzes
+- **Next time** -  
+    - 3.7 Exercise - refactoring previous code using behavior parameterization, anonymous classes, lambda expressions, and method references
+    - Chapter 4 - Intro to Streams quizzes (2)
+- *START RECORDING!*
+
+# Chapter 3: Apply lambdas to further tackle verbosity
 
 Points covered:
 
@@ -15,12 +21,19 @@ Points covered:
 * Method references
 * Composing lambdas
 
-NUTSHELL: A kind of anonymous function: it doesn’t have a name, but it has a list of parameters, a body, a return type, and also possibly a list of exceptions that can be thrown.
+Lambdas in a NUTSHELL: A kind of anonymous function: it doesn’t have a name, but it has a list of parameters, a body, a return type, and also possibly a list of exceptions that can be thrown.
 
-`(parameters) -> body acting on parameters and is return value`
+## General lambda syntax 
 
-*Expression-style lambda*
-`(Apple apple1, Apple apple2) -> a.getWeight().compareTo(a2.getWeight());`
+    (parameters) -> body acting on parameters and is return value
+
+*Expression-style lambdas*
+
+    (Apple apple) -> apple.getWeight().compareTo(a2.getWeight());
+
+    a -> a.getWeight().compareTo(a2.getWeight());
+    
+    (Apple apple1, Apple apple2) -> apple1.getWeight().compareTo(apple2.getWeight());
 
 *Block-style lambda*
 ```
@@ -35,38 +48,38 @@ They let you represent behavior or pass code in a concise way.
 - Predicates, strategy pattern too verbose
 - Anonymous functions hard to read, cumbersome, and still too verbose
 
-We'll use lambdas the rest of the book, along with some other goodies:
+We'll use lambdas the rest of the book, along with some related concepts:
 
 - Type inference
 - Important Java interfaces available
 - Introducing method references (which go hand-in-hand with lambda expressions)
 
-Listing 3.1. Valid lambda expressions in Java 8+
+* **Listing 3.1**. Valid lambda expressions in Java 8+
 
-Quiz 3.1: Lambda syntax
+### **Quiz 3.1: Lambda syntax**
 
-Table 3.1 This provides a list of example lambdas with examples of use cases.
+### **Table 3.1** This provides a list of example lambdas with examples of use cases
 
 *Where can you use them?*
-- You can use a lambda expression in the context of a functional interface. 
+ 
+- You can use a lambda expression in the **context of a functional interface** (more to come)
 - In the predicate exercise, you can pass a lambda as second argument to the method filter because it expects an object of type Predicate<T>, which is a functional interface
 
-*Functional interfaces*
-A functional interface is an interface that specifies exactly one abstract method
+## Functional interfaces
 
-You provide the implementation of the abstract method of a functional interface directly inline
+- A functional interface is an interface that specifies exactly one abstract method
+- You provide the implementation of the abstract method of a functional interface directly inline
+- The whole expression is a concrete implementation of the the functional interface
+- The signature of the functional interface's abstract method is called a *functional descriptor* (3.2.2)
 
-The whole expression is a concrete implementation of the the functional interface
-
-The signature of the functional interface's abstract method is called a *functional descriptor* (3.2.2)
-
-3.2.1 examples in the Java API
+### **3.2.1 examples** in the Java API
 
 *Default methods*
+
 - Interfaces can now also have default methods (a method with a body that provides some default implementation for a method in case it isn’t implemented by a class)
 - An interface is still a functional interface if it has many default methods as long as it specifies only one abstract method
 
-Quiz 3.2: identify Functional interface
+### **Quiz 3.2**: identify Functional interface
 
 Compare valid styles: 
 
@@ -85,17 +98,25 @@ process(r2);
 process(() -> System.out.println("Hello World 3"));   
 ```
 
-Quiz 3.3: Where can you use lambdas? (HINT: Look at Java's Runnable and Callable interfaces)
+### **Quiz 3.3:** Where can you use lambdas? (HINT: Look at Java's Runnable and Callable interfaces)
+
+Some Java functional interfaces you've seen so far: 
 
 ```
-public interface Runnable {
-    public void run();
+public interface Comparator<T> {                           1
+    int compare(T o1, T o2);
 }
-```
-
-```
-public interface Callable<V> {
+public interface Runnable {                                2
+    void run();
+}
+public interface ActionListener extends EventListener {    3
+    void actionPerformed(ActionEvent e);
+}
+public interface Callable<V> {                             4
     V call() throws Exception;
+}
+public interface PrivilegedAction<T> {                     5
+    T run();
 }
 ```
 
@@ -110,34 +131,77 @@ public interface Callable<V> {
 
 *Execute-around pattern*
 
-TALK THROUGH EXERCISE 3.3?
+A pattern where setup and cleanup phases are always similar and surround the important code doing the processing
 
-Most common functional interfaces:
+*Most common functional interfaces:*
+
 - Predicate
 - Consumer
 - Function
 
-Quiz 3.4 - which Java functional interface?
+### **Quiz 3.4** - which Java functional interface?
 
-Table 3.2. Longer list of common functional interfaces added in Java 8
+**Real world: composable.java**
 
-Table 3.3 Examples
+### **Table 3.2** Longer list of common functional interfaces added in Java 8
 
-3.5. TYPE CHECKING, TYPE INFERENCE, AND RESTRICTIONS - be aware
+### **Table 3.3** Examples
 
-*METHOD REFERENCES* - let you reuse existing method definitions and pass them like lambdas
+Additional concepts:
 
-Quiz 3.6: Method references
+- 3.5. TYPE CHECKING, TYPE INFERENCE, AND RESTRICTIONS - be aware
+- METHOD REFERENCES - let you reuse existing method definitions and pass them like lambdas
+- Composing comparators, predicates, functions
+- Similar ideas from math
 
-Constructor references
+## Method references
 
-Composing comparators, predicates, functions
+- Shorthand for lambdas calling a specific method
+- If the basic idea is that if a lambda represents “call this method directly,” it’s best to refer to the method by name rather than by a description of how to call it
 
-Similar ideas from math
+## Table 3.4. Examples of lambdas and method reference equivalents
 
-EXERCISE: Refactor chapter 2 quiz
+## Quiz 3.6 - Method references
 
-- Refactor stragtegy patterm to lambda, remove extra classes
-- Leverage @FunctionalInterface
-- Use method references?
-- Anything from Java functional interfaces?
+## Quiz 3.7 - Constructor references
+
+# Chapter 4: Introducing Streams
+
+* What is a stream?
+* Collections versus streams
+* Internal versus external iteration
+* Intermediate versus terminal operations
+
+Streams programming, Java Streams API
+
+*Collections*
+- Most programs make and *process collections of data*, including finding, filtering, grouping, counting
+- Most databases let you do these things *declaratively*, so you don't have to implement *how*. 
+- Welcome streams, for now you can think of them as *fancy iterators over collections of data*.
+
+4.1 example - before and after
+
+*Parallelism benefits intro*
+The threading model is decoupled from the query itself. Because you are providing a recipe for a query, it could be executed sequentially or in parallel. 
+
+## Core concepts
+
+- You chain together several building-block operations to express a complicated data-processing pipeline
+- You chain the filter by linking sorted, map, and collect operations - **lambdas!**
+
+[**Figure 4.1**](https://learning.oreilly.com/library/view/modern-java-in/9781617293566/04fig01_alt.jpg)
+
+Rest of chapter...
+- patterns such as filtering, slicing, finding, matching, mapping, and reducing
+- create streams from different sources, such as from a file
+- generate streams with an infinite number of elements
+
+
+## Session 6
+
+### EXERCISE: 3.7 PUTTING LAMBDAS AND METHOD REFERENCES INTO PRACTICE
+
+- To wrap up this chapter and our discussion on lambdas, we’ll continue with our initial problem of sorting a list of Apples with different ordering strategies 
+- Progressively evolve a naïve solution into a concise solution, using all the concepts and features explained so far:
+    - Behavior parameterization, anonymous classes, lambda expressions, and method references
+

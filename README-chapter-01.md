@@ -213,14 +213,7 @@ See book's last-page summary bullets
 
 A) Get the Spring Boot starter app (with exercises) running that's included in this repo: 
     
-1. Clone `https://github.com/excellalabs/modern-java`
-1. Install [docker](https://www.docker.com/products/docker-desktop) 
-1. Make sure you can do the following:
-
-    - Start docker container: `./run_app.sh`
-    - Compile the app: `./gradlew clean build`
-    - Running tests: `./gradlew test`
-
+See [instructions](README.md#Environment-Setup)
     
 B) Refactor redundant code using predicates and lambdas: 
 

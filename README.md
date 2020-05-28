@@ -15,26 +15,28 @@ Functional reactive programming is becoming the main way to programming these da
 ## Outline:
 
 - Part 1: Programming has changed - with functional reactive programming (passing code with behavior parameterization, and lambda expressions)
-    - 1-3 (3 sessions)
+    - 1-3 (5 sessions)
 - Part 2: Using streams when working with data, with parallel benefits
-    - 4-10 (4 sessions)
+    - 4-10 (? sessions)
 - Part 3: Modern language constructs to improve code - Optionals, default functions, etc.
-    - 11-14 (3 sessions)
+    - 11-14 (? sessions)
 - Part 4: Reactive programming for more concise concurrency
-    - 15-17 (3 sessions)
+    - 15-17 (? sessions)
 - Part 5: Working with functional programming techniques
-    - 18-21 (4 sessions)
+    - 18-21 (? sessions)
 
 ## Sessions
 
-Suggested format: 
-    - summary
-    - key points & into their details
-    - exercises / try out in app
+### **Mondays at 5:30**
+
+*See #modern-java-in-action for invite/zoom*
+
+### Session Agendas & Notes:
 
 * [Chapter 1 (sessions 1, 2 & 3)](README-chapter-01.md)
-* [Chapter 2](README-chapter-02.md)
-* [Chapter 3](README-chapter-03.md)
+* [Chapter 2 (session 4)](README-chapter-02.md)
+* [Chapter 3 (session 5, session 6)](README-chapter-03.md)
+* [Chapter 4 (session 6)](README-chapter-04.md)
 
 ## Environment Setup
 

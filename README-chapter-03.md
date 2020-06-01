@@ -187,10 +187,11 @@ Additional concepts:
 
 - default methods on functional interfaces facilitate composition
 - you can represent more complicated lambda expressions that still read like the problem statement
-- Comparing has reversed, thenComparing
-- Predicate has and, or
-- Function has andThen, compose
-- EXAMPLE before 3.9
+- Examples:
+    - Comparing has reversed, thenComparing
+    - Predicate has and, or
+    - Function has andThen, compose
+    - EXAMPLE before 3.9
 
 
 [*Continue to chapter 4*](README-chapter-04.md)

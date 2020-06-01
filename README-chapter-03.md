@@ -170,6 +170,8 @@ Additional concepts:
 ### EXERCISE: 3.7 PUTTING LAMBDAS AND METHOD REFERENCES INTO PRACTICE
 
 - To wrap up this chapter and our discussion on lambdas, we’ll continue with our initial problem of sorting a list of Apples with different ordering strategies 
-- Progressively evolve a naïve solution into a concise solution, using all the concepts and features explained so far:
-    - Behavior parameterization, anonymous classes, lambda expressions, and method references
+- Progressively evolve a naïve solution into a concise solution, using all the concepts and features explained so far: behavior parameterization, anonymous classes, lambda expressions, and method references
+- Pull the latest and go to the **instructions** in the file `src/test/java/com/excella/reactor/chapter03/SortingTest.java`
+- Good luck! 
 
+[*Continue to chapter 4*](README-chapter-04.md)

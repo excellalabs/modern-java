@@ -159,19 +159,38 @@ Additional concepts:
 - Shorthand for lambdas calling a specific method
 - If the basic idea is that if a lambda represents “call this method directly,” it’s best to refer to the method by name rather than by a description of how to call it
 
-## Table 3.4. Examples of lambdas and method reference equivalents
+### Table 3.4. Examples of lambdas and method reference equivalents
 
-## Quiz 3.6 - Method references
+### Quiz 3.6 - Method references
 
-## Quiz 3.7 - Constructor references
+## Constructor references
+
+### **Quiz 3.7**
 
 ## Session 6
 
-### EXERCISE: 3.7 PUTTING LAMBDAS AND METHOD REFERENCES INTO PRACTICE
+- **Welcome, Recap (START RECORDING)** 
+    - Last session: chapter 3, lambdas in depth, quizzes from chapter listed below
+- **Run through & discuss** - recap of chapter 3, exercise, composing lambdas, start chapter 4
+- **Exercises** - 3.7 exercise - evolving behavior parameterization
+- **Next time** - rest of Chapter 4
+
+### **EXERCISE: 3.7 PUTTING LAMBDAS AND METHOD REFERENCES INTO PRACTICE**
 
 - To wrap up this chapter and our discussion on lambdas, we’ll continue with our initial problem of sorting a list of Apples with different ordering strategies 
 - Progressively evolve a naïve solution into a concise solution, using all the concepts and features explained so far: behavior parameterization, anonymous classes, lambda expressions, and method references
 - Pull the latest and go to the **instructions** in the file `src/test/java/com/excella/reactor/chapter03/SortingTest.java`
 - Good luck! 
+
+
+### 3.8 - USEFUL METHODS TO COMPOSE LAMBDA EXPRESSIONS
+
+- default methods on functional interfaces facilitate composition
+- you can represent more complicated lambda expressions that still read like the problem statement
+- Comparing has reversed, thenComparing
+- Predicate has and, or
+- Function has andThen, compose
+- EXAMPLE before 3.9
+
 
 [*Continue to chapter 4*](README-chapter-04.md)

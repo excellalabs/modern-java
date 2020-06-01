@@ -34,4 +34,4 @@ Rest of chapter...
 - create streams from different sources, such as from a file
 - generate streams with an infinite number of elements
 
-NEXT TIME: 4.2 to the end of chapter 4
+NEXT TIME: 4.2 to the end of chapter 4, quizzes (2), exercise if time

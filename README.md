@@ -35,7 +35,7 @@ Functional reactive programming is becoming the main way to programming these da
 ## Sessions
 
 - **Mondays at 5:30**
-- *See **#modern-java-in-action** for invite/zoom*
+- *See **#modern-java-in-action** for invite/zoom & upcoming agenda*
 
 ### Session Agendas & Notes:
 

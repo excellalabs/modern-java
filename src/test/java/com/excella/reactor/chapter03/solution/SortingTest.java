@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 
-import com.excella.reactor.chapter03.AppleComparator;
+import com.excella.reactor.chapter03.AppleWeightComparator;
 import com.excella.reactor.domain.Apple;
 
 import org.junit.Test;
@@ -26,9 +26,9 @@ public class SortingTest {
     
     @Test
     public void can_sort_apples_correctly() {
-        inventory.sort(new AppleComparator());
+        inventory.sort(new AppleWeightComparator());
 
-        assertThat(inventory).usingElementComparator(new AppleComparator()).isSorted();
+        assertThat(inventory).usingElementComparator(new AppleWeightComparator()).isSorted();
     }
 
     @Test

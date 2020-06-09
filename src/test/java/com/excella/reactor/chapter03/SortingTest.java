@@ -5,7 +5,7 @@ EXERCISE 3.7: Evolution of behavior parameterization
 INSTRUCTIONS: 
 - Use this test class along with the book's 3.7 exercise (it starts you off just before 3.7.2)
 - Run the tests with: ./gradlew test --tests com.excella.reactor.chapter03.solution.*
-- Try to do the following refactors to the apple ascending sort without looking at the book or solution
+- Try to do the following refactors to the apple ascending by weight sort without looking at the book or solution
 - Create a new test for each of the following refactors:
 
 1. Refactor test to use anonymous class (3.7.2)
@@ -40,8 +40,8 @@ public class SortingTest {
 
     @Test
     public void can_sort_apples_correctly() {
-        inventory.sort(new AppleComparator());
+        inventory.sort(new AppleWeightComparator());
 
-        assertThat(inventory).usingElementComparator(new AppleComparator()).isSorted();
+        assertThat(inventory).usingElementComparator(new AppleWeightComparator()).isSorted();
     }
 }

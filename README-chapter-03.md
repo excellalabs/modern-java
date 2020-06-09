@@ -1,5 +1,7 @@
 ## *Session 5*
 
+*[Recording](https://excella.zoom.us/rec/share/y_BvFYra72xLU7POxBjyRYUoPJndX6a82ndK-_YKyhrGuHGStZSvYLCKiuwrPm7T)*
+
 Agenda
 
 - **Welcome & Recap** 
@@ -169,9 +171,11 @@ Additional concepts:
 
 ## Session 6
 
+*[Recording](https://excella.zoom.us/rec/share/wuhpc5Gz8EVJS7P01XzcQbImEsOiX6a80CJPr_Rezk3F5AzAtfwUVex-ZWiW5q0Z)*
+
 - **Welcome, Recap (START RECORDING)** 
     - Last session: chapter 3, lambdas in depth, quizzes from chapter listed below
-- **Run through & discuss** - recap of chapter 3, exercise, composing lambdas, start chapter 4
+- **Run through & discuss** - recap of chapter 3 & summary, exercise, composing lambdas, start chapter 4
 - **Exercises** - 3.7 exercise - evolving behavior parameterization
 - **Next time** - rest of Chapter 4
 
@@ -183,7 +187,7 @@ Additional concepts:
 - Good luck! 
 
 
-### 3.8 - USEFUL METHODS TO COMPOSE LAMBDA EXPRESSIONS
+### 3.8 - Useful methods in composing lambda expressions
 
 - default methods on functional interfaces facilitate composition
 - you can represent more complicated lambda expressions that still read like the problem statement

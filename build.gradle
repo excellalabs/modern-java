@@ -46,4 +46,5 @@ dependencies {
 	testImplementation 'io.projectreactor:reactor-test'
 	testImplementation 'com.pholser:junit-quickcheck-core:0.9'
 	testImplementation 'com.pholser:junit-quickcheck-generators:0.9'
+	testCompile("org.assertj:assertj-core:3.11.1")
 }

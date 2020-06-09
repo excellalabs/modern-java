@@ -1,4 +1,13 @@
+## Session 7
+
+- **Welcome, Recap (START RECORDING)** 
+    - Last session: chapter 3 exercise
+- **Run through & discuss** - chapter 4 review and discussion & quizzes as a group
+- **Next time** - Chapter 5 review & discussion (35m), small exercise at end (15m)
+
 # Chapter 4: Introducing Streams (streams programming with the Java Streams API)
+
+Chapter concepts: 
 
 * What is a stream?
 * Collections versus streams
@@ -6,6 +15,7 @@
 * Intermediate versus terminal operations
 
 *Collections*
+
 - Most programs make and *process collections of data*, including finding, filtering, grouping, counting
 - Most databases let you do these things *declaratively*, so you don't have to implement *how*. 
 - Welcome streams, for now you can think of them as *fancy iterators over collections of data*.
@@ -25,13 +35,13 @@ The threading model is decoupled from the query itself. Because you are providin
 
 Streams are: 
 
-- Declarative— More concise and readable
-- Composable— Greater flexibility
-- Parallelizable— Better performance
+- Declarative — More concise and readable
+- Composable — Greater flexibility
+- Parallelizable — Better performance
 
 Rest of chapter...
 - patterns such as filtering, slicing, finding, matching, mapping, and reducing
 - create streams from different sources, such as from a file
 - generate streams with an infinite number of elements
 
-NEXT TIME: 4.2 to the end of chapter 4, quizzes (2), exercise if time
+//TODO rest

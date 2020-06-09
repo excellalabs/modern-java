@@ -104,6 +104,8 @@ File[] hiddenFiles = new File(".").listFiles(File::isHidden);
 
 # Session 2 
 
+*[Recording](https://excella.zoom.us/rec/share/2Y9bKqnOrWdIbImV4nzOZI8LHaXZaaa81ndM-_ULykiftzmQ_2AjYKJwCwwH10Aq)*
+
 ## Housekeeping
 
 - Rounds
@@ -195,6 +197,8 @@ Normally you'd use if/else or switch statements
 Example: under 1.6
 
 # Session 3 
+
+*[Recording](https://excella.zoom.us/rec/share/5NJyEr36qH5LRc_Qx0GAR_4tHpTVX6a81XQe8_ZZnRtwc6NlBaBaNvAqM44XwWEk)*
 
 ## House cleaning 
 

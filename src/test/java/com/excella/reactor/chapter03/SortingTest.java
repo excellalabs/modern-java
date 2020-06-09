@@ -36,7 +36,7 @@ public class SortingTest {
         new Apple(155, "green"),
         new Apple(120, "red"),
         new Apple(180, "red")
-);
+    );
 
     @Test
     public void can_sort_apples_correctly() {

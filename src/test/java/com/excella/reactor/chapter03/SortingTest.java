@@ -32,11 +32,11 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class SortingTest {
 
     List<Apple> inventory = Arrays.asList(
-			new Apple(80, "green"),
-			new Apple(155, "green"),
-            new Apple(120, "red"),
-            new Apple(190, "red")
-	);
+        new Apple(80, "green"),
+        new Apple(155, "green"),
+        new Apple(120, "red"),
+        new Apple(180, "red")
+);
 
     @Test
     public void can_sort_apples_correctly() {

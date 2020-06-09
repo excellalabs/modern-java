@@ -53,10 +53,12 @@ Functional reactive programming is becoming the main way to programming these da
 
 ## Environment Setup
 
-1. Install [docker](https://www.docker.com/products/docker-desktop) 
-1. Clone this repo (`https://github.com/excellalabs/modern-java`)
+1. Install [Docker](https://www.docker.com/products/docker-desktop) 
+1. Clone this repo
 1. Make sure you can do the following:
 
-    - Start docker container: `./run_app.sh`
-    - Compile the app: `./gradlew clean build`
-    - Running tests: `./gradlew test`
+    1. Start Java container: `./run_app.sh`
+    1. Inside the container:
+    
+        - Compile the app: `./gradlew clean build`
+        - Running tests: `./gradlew test`

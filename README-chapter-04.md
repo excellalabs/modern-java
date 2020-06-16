@@ -1,5 +1,7 @@
 ## Session 7
 
+*[Recording](https://excella.zoom.us/rec/share/-P5NCJTo53tOYavrt3jnV4MnBqPVaaa81ykb-acKmkvfwte1a5b6QCqVbYXLKtM7)*
+
 - **Welcome, Recap (START RECORDING)** 
     - Last session: chapter 3 exercise
 - **Run through & discuss** - chapter 4 review and discussion & quizzes as a group

@@ -64,10 +64,41 @@ public class SortingTest {
 
     @Test
     public void can_sort_apples_correctly_including_method_reference() {
-        var byWeight = comparing(Apple::getWeight); 
+        
+        // List<Integer> numbers1 = Arrays.asList(1, 2, 3);
+        // List<Integer> numbers2 = Arrays.asList(3, 4);
+        // List<int[]> pairs =
+        //     numbers1.stream()
+        //             .flatMap(i ->
+        //                     numbers2.stream()
+        //                             .filter(j -> (i + j) % 3 == 0)
+        //                             .map(j -> new int[]{i, j})
+        //                     )
+        //             .collect(toList());
 
-        inventory.sort(byWeight);
+        // System.out.println(numbers1);
+        // System.out.println(numbers2);
 
-        assertThat(inventory).usingElementComparator(byWeight).isSorted();
+        
+        
+        // var byWeight = comparing(Apple::getWeight); 
+
+        // inventory.sort(byWeight);
+
+        // assertThat(inventory).usingElementComparator(byWeight).isSorted();
+
+        // List<String> names = menu.stream()
+        //         .filter(dish -> {
+        //                         System.out.println("filtering:" + dish.getName());
+        //                         return dish.getCalories() > 300;
+        //                     })                                                    1
+        //         .map(dish -> {
+        //                     System.out.println("mapping:" + dish.getName());
+        //                     return dish.getName();
+        //                 })                                                       2
+        //          .limit(3)
+        //         .collect(toList());
+                
+        // System.out.println(names);
     }
 }

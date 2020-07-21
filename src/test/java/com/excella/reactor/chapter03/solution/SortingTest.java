@@ -84,7 +84,7 @@ public class SortingTest {
         // var byWeight = comparing(Apple::getWeight); 
 
         // inventory.sort(byWeight);
-
+            
         // assertThat(inventory).usingElementComparator(byWeight).isSorted();
 
         // List<String> names = menu.stream()

@@ -56,6 +56,8 @@ List<Dish> dishes = menu.stream()
 
 # Session 8
 
+*[Recording](https://excella.zoom.us/rec/share/uZFZEbTx70VITK-R0kD4XZYIO6Tmeaa80yUd86cKmE7nmeH7rxAqBf10vBUyrTs1)*
+
 ## Agenda 
 
 - **Recap** (START RECORING)
@@ -283,6 +285,21 @@ Operations such as `sorted or distinct`:
 ### [Table 5.1: Intermediate and Terminal Strem Operations](https://learning.oreilly.com/library/view/Modern+Java+in+Action/9781617293566/kindle_split_016.html#ch05table01)
 
 ### HOMEWORK EXERCISE: 5.6. PUTTING IT ALL INTO PRACTICE
+
+# Session 9
+
+_[Recording](_[Recording](https://excella.zoom.us/rec/share/_P1ELaPb9GlIRaPu5U_Zepw4MKHnT6a80Ckb-_FYzkkFYgimFZptim0q5nPY8wlS?startTime=1593466605000https://excella.zoom.us/rec/share/_P1ELaPb9GlIRaPu5U_Zepw4MKHnT6a80Ckb-_FYzkkFYgimFZptim0q5nPY8wlS?startTime=1593466605000)_)_
+
+## Agenda
+
+- **Recap** (START RECORING)
+    - Chapter 5 except last section
+    - Putting it all together exercise as homework
+- **Today:** 
+    - Go through exercise
+    - Last part of chapter 5 
+    - Chapter 6
+- **Next time:** Finish chapter 6, some of chapter 7 - Parallel data processing and performance
 
 ### 5.7 Primitive stream specializations
 

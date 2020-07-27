@@ -32,20 +32,6 @@ Under the hood
 - we’ll see that the way a parallel stream gets divided into chunks, before processing the different chunks in parallel, can in some cases be the origin of these incorrect and apparently unexplainable results
 - For this reason, you’ll learn how to take control of this splitting process by implementing and using your own Spliterator
 
-# Session 11
-
-_[Recording]()_
-
-## Agenda
-
-- **Recap** (START RECORING)
-    - Finished chapter 6
-    - Started chapter 7
-- **Today:** 
-    - Chapter 7, maybe 8
-    
-- **Next time:** ?
-
 ## 7.1 Parallel Streams
 
 - You can turn a collection into a **parallel stream** by using the **parellelStream** method in place of stream
@@ -77,10 +63,6 @@ public long iterativeSum(long n) {
     return result;
 }
 ```
-
-
-
-
 
 This operation is a good candidate to use parallelization, especially for large values of n.
 
@@ -129,6 +111,20 @@ System.setProperty("java.util.concurrent.ForkJoinPool.common.parallelism",
 - you can't specify this for a single parallel stream
 - the default is meaningful and shouldn't be changed without good reason
 
+# Session 11
+
+_[Recording]()_
+
+## Agenda
+
+- **Recap** (START RECORING)
+    - Finished chapter 6
+    - Started chapter 7
+- **Today:** 
+    - Chapter 7
+    
+- **Next time:** Finish 7, start/finish 8
+
 ## 7.1.2 Measuring stream performance
 
 How to measure?
@@ -165,7 +161,7 @@ public class ParallelStreamBenchmark {
 1. The method to be benchmarked
 1. Tries to run the garbage collector after each iteration of the 1. benchmark
 
-When you compile this class, the Maven plugin configured before generates a second JAR file named benchmarks.jar that you can run as follows:
+When you compile this class, a second JAR file named benchmarks is generated that you can run as follows:
 
 ```
 java -jar ./target/benchmarks.jar ParallelStreamBenchmark
@@ -277,5 +273,101 @@ Parallelism overhead
 
 Before you use a parallel stream to make your code faster, you have to be sure that you’re using it correctly; it’s not helpful to produce a result in less time if the result will be wrong. Let’s look at a common pitfall.
 
-//todo
+Main cause of parallel stream misuse is the use of algorithms that mutate some shared state, i.e.:
 
+```
+public long sideEffectSum(long n) {
+    Accumulator accumulator = new Accumulator();
+    LongStream.rangeClosed(1, n).forEach(accumulator::add);
+    return accumulator.total;
+}
+public class Accumulator {
+    public long total = 0;
+    public void add(long value) { total += value; }
+}
+```
+
+- quite common
+- irretrievably broken because it’s fundamentally sequential
+- data race on every access 
+- if fixed with synchronization, you’ll lose all parallelism
+
+### EXAMPLE: run `SideEffect parallel sum`
+
+- each execution returns a different result
+- all distant from the correct value of 50000005000000
+- multiple threads are concurrently accessing the accumulator 
+- executing total += value
+- despite its appearance, isn’t an atomic operation
+- method invoked inside the forEach block has the side effect of changing the mutable state of an object shared among multiple threads
+- avoid shared mutable state
+
+## 7.1.4 Using parallel streams effectively
+
+- Can't make one prescription like, use parallel on any dataset of a particular size
+- Depends on context
+
+There is qualitative advice:
+
+- Measure
+- Watch out for boxing
+- Some operations aren't natural for parallel, like `limit` and `findFirst`, that rely on order of the elements
+    - You can turn an ordered stream into an unordered stream by invoking the method unordered on it
+    - For instance, if you need N elements of your stream and you’re not necessarily interested in the first N ones, calling limit on an unordered parallel stream may execute more efficiently 
+- Consider total computation cost of pipeline
+    -  With N being the number of elements to be processed and Q the approximate cost of processing one of these elements through the stream pipeline, the product of N*Q gives a rough qualitative estimation of this cost
+    - A higher value for Q implies a better chance of good performance when using a parallel stream
+- For a small amount of data, choosing a parallel stream is almost never a winning decision 
+    - The advantages of processing in parallel only a few elements aren’t enough to compensate for the additional cost introduced by the parallelization process
+- Take into account how well the data structure underlying the stream decomposes
+    - For instance, an ArrayList can be split much more efficiently than a LinkedList, because the first can be evenly divided without traversing it
+    - Also, the primitive streams created with the range factory method can be decomposed quickly
+    - Finally, as you’ll learn in section 7.3, you can get full control of this decomposition process by implementing your own Spliterator
+- The characteristics of a stream, and how the intermediate operations through the pipeline modify them, can change the performance of the decomposition process
+    - For example, a SIZED stream can be divided into two equal parts, and then each part can be processed in parallel more effectively, but a filter operation can throw away an unpredictable number of elements
+- Consider whether a terminal operation has a cheap or expensive merge step (for example, the combiner method in a Collector)
+    - the cost caused by the combination of the partial results generated by each substream can outweigh the performance benefits of a parallel stream
+
+### See Table 7.1. Stream sources and decomposability
+ 
+## 7.2. THE FORK/JOIN FRAMEWORK
+
+- designed to recursively split a parallelizable task into smaller tasks and then combine the results of each subtask to produce the overall result
+- implementation of the ExecutorService interface, which distributes those subtasks to worker threads in a thread pool
+- it's called `ForkJoinPool`
+
+### 7.2.1. Working with RecursiveTask
+
+_How to define a task and subtask_
+
+To submit tasks to this pool, you have to create a subclass of `RecursiveTask<R>`, where R is the type of the result produced by the parallelized task (and each of its subtasks) or of RecursiveAction if the task returns no result (it could be updating other nonlocal structures, though). 
+
+To define `RecursiveTasks` you need only implement its single abstract method, compute:
+
+```
+protected abstract R compute();
+```
+
+This method defines 
+- logic of splitting the task at hand into subtasks 
+- the algorithm to produce the result of a single subtask when it’s no longer possible or convenient to further divide it
+
+For this reason an implementation of this method often resembles the following pseudocode:
+
+```
+if (task is small enough or no longer divisible) {
+    compute task sequentially
+} else {
+    split task in two subtasks
+    call this method recursively possibly further splitting each subtask
+    wait for the completion of all subtasks
+    combine the results of each subtask
+}
+```
+
+- no precise criteria for deciding whether a given task should be further divided or not, but there are various heuristics that you can follow to help you with this decision
+
+[DIAGRAM](https://learning.oreilly.com/library/view/modern-java-in/9781617293566/07fig03_alt.jpg)
+
+
+// todo

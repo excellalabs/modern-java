@@ -3,16 +3,14 @@ package com.excella.reactor;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class ReactorApplication {
 
 	public static void main (String[] args)
     {
-        int[] A = { 8, 7, 2, 5, 3, 1 };
-        int sum = 10;
-
-		findPair(A, sum);
+        // int[] A = { 8, 7, 2, 5, 3, 1 };
+        // int sum = 10;
+		//findPair(A, sum);
 		
 		ParallelStreamHarness.run();
     }

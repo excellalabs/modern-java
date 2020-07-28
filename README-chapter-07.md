@@ -113,7 +113,7 @@ System.setProperty("java.util.concurrent.ForkJoinPool.common.parallelism",
 
 # Session 11
 
-_[Recording]()_
+_[Recording](https://excella.zoom.us/rec/play/78V4d7quq243S92dsQSDAqUvW9S1L6us1SAX_PcLmEi1AXACZ1qgYrMRZufM9AmYloDFn7xnhc9UyGUj?startTime=1595885606000)_
 
 ## Agenda
 
@@ -301,6 +301,19 @@ public class Accumulator {
 - despite its appearance, isn’t an atomic operation
 - method invoked inside the forEach block has the side effect of changing the mutable state of an object shared among multiple threads
 - avoid shared mutable state
+
+# Session 12
+
+_[Recording](https://excella.zoom.us/rec/play/78V4d7quq243S92dsQSDAqUvW9S1L6us1SAX_PcLmEi1AXACZ1qgYrMRZufM9AmYloDFn7xnhc9UyGUj?startTime=1595885606000)_
+
+## Agenda
+
+- **Recap** (START RECORING)
+    - Got to here in chapter 7
+- **Today:** 
+    - Finish chapter 7, do 8 if time
+    
+- **Next time:** Finish 8, start 9
 
 ## 7.1.4 Using parallel streams effectively
 

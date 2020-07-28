@@ -29,6 +29,10 @@ public class ParallelStreams {
     return LongStream.rangeClosed(1, n).parallel().reduce(Long::sum).getAsLong();
   }
 
+  public static long parallelIterateSum(long n) {
+    return LongStream.iterate(1L, i -> i + 1).parallel().reduce(Long::sum).getAsLong();
+  }
+
   public static long sideEffectSum(long n) {
     Accumulator accumulator = new Accumulator();
     LongStream.rangeClosed(1, n).forEach(accumulator::add);

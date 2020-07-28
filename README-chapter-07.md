@@ -312,6 +312,7 @@ _[Recording](https://excella.zoom.us/rec/play/78V4d7quq243S92dsQSDAqUvW9S1L6us1S
     - Got to here in chapter 7
 - **Today:** 
     - Finish chapter 7, do 8 if time
+    - Code examples start here: src/main/java/com/excella/reactor/ParallelStreamHarness.java
     
 - **Next time:** Finish 8, start 9
 

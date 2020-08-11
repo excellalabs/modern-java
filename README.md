@@ -54,6 +54,8 @@ Functional reactive programming is becoming the main way to programming these da
     * [Session 9](README-chapter-05.md#Session-9)
     * [Session 10](README-chapter-06.md#Session-10)
     * [Session 11](README-chapter-07.md#Session-11)
+    * [Session 12](README-chapter-07.md#Session-12)
+    * [Session 13](README-chapter-07.md#Session-13)
 
 ## Environment Setup
 

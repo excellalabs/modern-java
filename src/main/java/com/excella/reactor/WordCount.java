@@ -13,8 +13,8 @@ public class WordCount {
       + " che la  dritta via era   smarrita ";
 
   public static void run() {
-    System.out.println("Found " + countWordsIteratively(SENTENCE) + " words");
-    System.out.println("Found " + countWords(SENTENCE) + " words");
+    System.out.println("Found (iterative) " + countWordsIteratively(SENTENCE) + " words");
+    System.out.println("Found (parallel) " + countWords(SENTENCE) + " words");
   }
 
   public static int countWordsIteratively(String s) {

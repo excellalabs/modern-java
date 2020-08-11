@@ -2,6 +2,8 @@ package com.excella.reactor;
 
 import java.util.concurrent.ForkJoinPool;
 import java.util.function.Function;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class ParallelStreamHarness {
 
@@ -13,11 +15,16 @@ public class ParallelStreamHarness {
     System.out.println("Parallel forkJoinSum done in: " + measurePerf(ParallelStreams::parallelSum, 10_000_000L) + " msecs" );
     System.out.println("Range forkJoinSum done in: " + measurePerf(ParallelStreams::rangedSum, 10_000_000L) + " msecs");
     System.out.println("Parallel range forkJoinSum done in: " + measurePerf(ParallelStreams::parallelRangedSum, 10_000_000L) + " msecs" );
-    // UNCOMMENT TO USE UP ALL YOUR MEMORY
-    //System.out.println("Parallel iterate forkJoinSum done in: " + measurePerf(ParallelStreams::parallelIterateSum, 10_000_000L) + " msecs" );
-    System.out.println("ForkJoin sum done in: " + measurePerf(ForkJoinSumCalculator::forkJoinSum, 10_000_000L) + " msecs" );
-    System.out.println("SideEffect sum done in: " + measurePerf(ParallelStreams::sideEffectSum, 10_000_000L) + " msecs" );
+    System.out.println("SideEffect traditional sum done in: " + measurePerf(ParallelStreams::sideEffectSum, 10_000_000L) + " msecs" );
+    // NOTE: Data race on every access to total
     System.out.println("SideEffect parallel sum done in: " + measurePerf(ParallelStreams::sideEffectParallelSum, 10_000_000L) + " msecs" );
+    // WARNING: Trying to parallize an iterate operation can use up your memory
+    //System.out.println("Parallel iterate forkJoinSum done in: " + measurePerf(ParallelStreams::parallelIterateSum, 10_000_000L) + " msecs" );
+
+    // 7.2 Using fork/join framework directly    
+    System.out.println("ForkJoin sum done in: " + measurePerf(ForkJoinSumCalculator::forkJoinSum, 10_000_000L) + " msecs" );
+
+    WordCount.run();
   }
 
   public static <T, R> long measurePerf(Function<T, R> f, T input) {

@@ -2,6 +2,7 @@ package com.excella.reactor;
 
 import java.util.Spliterator;
 import java.util.function.Consumer;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
@@ -13,6 +14,7 @@ public class WordCount {
       + " che la  dritta via era   smarrita ";
 
   public static void run() {
+    System.out.println("Running word count Spliterator..."); 
     System.out.println("Found (iterative) " + countWordsIteratively(SENTENCE) + " words");
     System.out.println("Found (parallel) " + countWords(SENTENCE) + " words");
   }
@@ -35,10 +37,12 @@ public class WordCount {
   }
 
   public static int countWords(String s) {
-    //Stream<Character> stream = IntStream.range(0, s.length())
-    //    .mapToObj(SENTENCE::charAt).parallel();
-    Spliterator<Character> spliterator = new WordCounterSpliterator(s);
-    Stream<Character> stream = StreamSupport.stream(spliterator, true);
+    Stream<Character> stream = IntStream.range(0, s.length())
+       .mapToObj(SENTENCE::charAt).parallel();
+    
+    // USE A SPLITERATOR to handle miscalculation of words due to spaces
+    // Spliterator<Character> spliterator = new WordCounterSpliterator(s);
+    // Stream<Character> stream = StreamSupport.stream(spliterator, true);
 
     return countWords(stream);
   }

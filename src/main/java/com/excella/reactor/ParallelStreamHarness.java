@@ -12,11 +12,11 @@ public class ParallelStreamHarness {
   public static void run() {
     System.out.println("Iterative Sum done in: " + measurePerf(ParallelStreams::iterativeSum, 10_000_000L) + " msecs");
     System.out.println("Sequential Sum done in: " + measurePerf(ParallelStreams::sequentialSum, 10_000_000L) + " msecs");
-    System.out.println("Parallel forkJoinSum done in: " + measurePerf(ParallelStreams::parallelSum, 10_000_000L) + " msecs" );
-    System.out.println("Range forkJoinSum done in: " + measurePerf(ParallelStreams::rangedSum, 10_000_000L) + " msecs");
-    System.out.println("Parallel range forkJoinSum done in: " + measurePerf(ParallelStreams::parallelRangedSum, 10_000_000L) + " msecs" );
+    System.out.println("Parallel sum done in: " + measurePerf(ParallelStreams::parallelSum, 10_000_000L) + " msecs" );
+    System.out.println("Range sum done in: " + measurePerf(ParallelStreams::rangedSum, 10_000_000L) + " msecs");
+    System.out.println("Parallel range sum done in: " + measurePerf(ParallelStreams::parallelRangedSum, 10_000_000L) + " msecs" );
     System.out.println("SideEffect traditional sum done in: " + measurePerf(ParallelStreams::sideEffectSum, 10_000_000L) + " msecs" );
-    // NOTE: Data race on every access to total
+    // NOTE, INACCURATE because of a data race on every access to total
     System.out.println("SideEffect parallel sum done in: " + measurePerf(ParallelStreams::sideEffectParallelSum, 10_000_000L) + " msecs" );
     // WARNING: Trying to parallize an iterate operation can use up your memory
     //System.out.println("Parallel iterate forkJoinSum done in: " + measurePerf(ParallelStreams::parallelIterateSum, 10_000_000L) + " msecs" );

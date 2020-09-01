@@ -57,7 +57,7 @@ public class ParallelStreams {
                      .reduce(Long::sum).getAsLong();
   }
 
-  // NOTE: this seems to cause a memory leak
+  // NOTE: this causes a memory leak
   public static long parallelIterateSum(long n) {
     return LongStream.iterate(1L, i -> i + 1)
                      .parallel()

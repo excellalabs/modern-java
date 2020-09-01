@@ -422,10 +422,11 @@ Create implementation of for the `RecursiveTask` class
 - In the real world, you'd only create 1 instance of ForkJoinPool via singleton
 - Uses default no-argument constructor, allowing the pool to use the number of processors returned by `Runtime.availableProcessors`
 - _See book for code walkthrough_
-- Try it out - 
+- See _Figure 7.4 The fork/join algorithm_
+
+### Try it out
     - [ForkJoinSumCalculator.java](src/main/java/com/excella/reactor/ForkJoinSumCalculator.java)
     - Executed from [ParallelStreamHarness.java](src/main/java/com/excella/reactor/ParallelStreamHarness.java)
-- See _Figure 7.4 The fork/join algorithm_
 
 ### 7.2.2. Best practices for using the fork/join framework
 
@@ -450,6 +451,10 @@ Easy to use, easy to misuse, so remember:
         - like other code, the fork/join framework needs to be “warmed up,” or executed a few times before being optimized by the JIT compiler. This is why it’s always important to run the program multiple times before to measure its performance
         - optimizations built into the compiler could unfairly give an advantage to the sequential version (for example, by performing dead code analysis—removing a computation that’s never used)
 - must choose criteria used to decide if a given subtask should be further split
+
+#### Try it out
+
+See [forkJoinSum code](src/main/java/com/excella/reactor/ForkJoinSumCalculator.java)
 
 ### 7.2.3. Work stealing
 
@@ -487,19 +492,24 @@ _[Recording (8/17/20)]()_
 
 ## Agenda
 
-- **Recap** (START RECORING)
+- **Recap** (START RECORDING)
     - Got to here in chapter 7
 - **Today:** 
-    - Finish chapter 7 - Spliterator, chapter 8
-- **Next time:** Chapter 9
+    - Recap chapter 7
+    - Finish chapter 7 - Spliterator, chapter 8 (Collection API enhancements)
+- **Next time:** Chapter 9 - Refactoring, testing, debugging with the new constructs
 
 ### 7.3. Spliterator
 
-The above process of splitting into subtasks was done automatically for you when you used a parallel stream in that chapter, using the `Spliterator`.
+tl;dr
 
-- "Splitable iterator" added in Java 8
-- You may not have to develop your own, but understanding is helpful as before
-    - Java 8 provides default methods implemetations of `spliterator()` for all the data structures in the Collections Framework
+- Another new interface added to Java 8
+- Name stands for "splitable iterator"
+- Designed to traverse elements in a source in parallel
+- you may not have to develop your own Spliterator in practice, understanding how to do so will give you a wider understanding about how parallel streams work
+- The Collection interface now provides a default method `spliterator()` which returns a Spliterator object, for all the data structures in the Collections Framework
+
+The process of splitting into subtasks was done automatically for you when you used a parallel stream in that chapter, using the `Spliterator`.
 
 _Listing 7.3. The Spliterator interface_
 
@@ -518,24 +528,23 @@ public interface Spliterator<T> {
 
 ### 7.3.1. The splitting process
 
-The algorithm that splits a stream into multiple parts is a recursive process and proceeds 
+The algorithm that splits a stream into multiple parts is a recursive process
 
-_See figure 7.6_
-
+_See figure 7.6_:
 - trySplit is recursively called on Spliterators, splitting them into more, until the called Spliterator returns null
 - null indicates the data structure is no longer divisible
 - process ends when all Spliterators return null to a `trySplit` invocation
 - splitting can be influenced by the Spliterator itself from its own `characteristics()` method
 
-Spliterator characteristics:
+Spliterator characteristics interface:
 
-- Spliterator clients can use them to better control and optimize its usage
-- Constants defined in the `Spliterator` interface
+- Spliterator clients can use `characteristics` to better control and optimize its usage
+- Constants defined in the `Spliterator` interface like ORDERED, DISTINCT, SIZED, IMMUTABLE
 - See Table 7.2 Spliterator's characteristic
 
 ### 7.3.2. Implementing your own Spliterator
 
-_Develop word count of a string_
+Practical example: _Develop word count of a string_
 
 Iterative version:
 
@@ -555,9 +564,16 @@ public int countWordsIteratively(String s) {
 }
 ```
 
-- use against the first sentence of Dante's Inferno
-- [WordCount.java](src/main/java/com/excella/reactor/WordCount.java)
-- refactor to functional style
+- Refactor to functional style
 - add parallel, see side effect issue
+- Implement Spliterator to control how strings are split for parallel processing
+- See explanation in `Listing 7.5` & `Listing 7.6`
+
+#### Try it out 
+
+The code working, [WordCount.java](src/main/java/com/excella/reactor/WordCount.java)
+
 
 ## Summary 
+
+[Continue to Chapter 8](README-chapter-08.md)

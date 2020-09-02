@@ -488,7 +488,7 @@ _See Figure 7.5_
 
 # Session 13
 
-_[Recording (8/17/20)](https://excella.zoom.us/rec/share/n1OlFEa68jgayQ_IhV_rksORX6meq6iLcEDdssMn2Jqxu64U2vuJISSJKQl7PZFa.cWmln7s2Hc-NWKXH)_
+_[Recording (9/2/20)](https://excella.zoom.us/rec/share/n1OlFEa68jgayQ_IhV_rksORX6meq6iLcEDdssMn2Jqxu64U2vuJISSJKQl7PZFa.cWmln7s2Hc-NWKXH)_
 
 ## Agenda
 
@@ -497,8 +497,8 @@ _[Recording (8/17/20)](https://excella.zoom.us/rec/share/n1OlFEa68jgayQ_IhV_rksO
     - Got to here in chapter 7
 - **Today:** 
 
-    - Finish chapter 7 - Spliterator, chapter 8 (Collection API enhancements)
-- **Next time:** Chapter 9 - Refactoring, testing, debugging with the new constructs
+    - Finish chapter 7 - Spliterator
+- **Next time:** chapter 8 (Collection API enhancements), start Chapter 9 - Refactoring, testing, debugging with the new constructs
 
 ### 7.3. Spliterator
 

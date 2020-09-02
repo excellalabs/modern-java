@@ -113,6 +113,14 @@ Map<String, Integer> ageOfFriends
 
 ### Quiz 8.1
 
+What do you think is the output of the following snippet?
+
+```
+List<String> actors = List.of("Keanu", "Jessica")
+actors.set(0, "Brad");
+System.out.println(actors)
+```
+
 ## 8.2. Working with List and Set
 
 -Java 8 introduced a few methods into the List and Set interfaces: `removeIf`, `replaceAll`, and `sort`

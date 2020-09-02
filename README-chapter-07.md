@@ -488,14 +488,15 @@ _See Figure 7.5_
 
 # Session 13
 
-_[Recording (8/17/20)]()_
+_[Recording (8/17/20)](https://excella.zoom.us/rec/share/n1OlFEa68jgayQ_IhV_rksORX6meq6iLcEDdssMn2Jqxu64U2vuJISSJKQl7PZFa.cWmln7s2Hc-NWKXH)_
 
 ## Agenda
 
-- **Recap** (START RECORDING)
+- **Housekeeping**: notes & code, expensing food, start recording
+- **Recap**
     - Got to here in chapter 7
 - **Today:** 
-    - Recap chapter 7
+
     - Finish chapter 7 - Spliterator, chapter 8 (Collection API enhancements)
 - **Next time:** Chapter 9 - Refactoring, testing, debugging with the new constructs
 

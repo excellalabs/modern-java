@@ -24,6 +24,7 @@ public class WordCount {
     boolean lastSpace = true;
     for (char c : s.toCharArray()) {
       if (Character.isWhitespace(c)) {
+        // NOTE: State, nooo! :< 
         lastSpace = true;
       }
       else {
@@ -37,12 +38,12 @@ public class WordCount {
   }
 
   public static int countWords(String s) {
-    Stream<Character> stream = IntStream.range(0, s.length())
-       .mapToObj(SENTENCE::charAt).parallel();
+    // Stream<Character> stream = IntStream.range(0, s.length())
+    //    .mapToObj(SENTENCE::charAt).parallel();
     
     // USE A SPLITERATOR to handle miscalculation of words due to spaces
-    // Spliterator<Character> spliterator = new WordCounterSpliterator(s);
-    // Stream<Character> stream = StreamSupport.stream(spliterator, true);
+    Spliterator<Character> spliterator = new WordCounterSpliterator(s);
+    Stream<Character> stream = StreamSupport.stream(spliterator, true);
 
     return countWords(stream);
   }

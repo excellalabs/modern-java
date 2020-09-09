@@ -1,5 +1,20 @@
 # Chapter 8: Collection API Enhancements
 
+# Session 14
+
+_[Recording (9/8/20)](https://excella.zoom.us/rec/share/jEBTzycfNKRyaOgiu6TWN8fEZJCS56cARCFnncIiQfjkUYG14m6tJ3FRHZ9piXY3.uMcpOZvDeN16LbAu)_
+
+## Agenda
+
+- **Housekeeping**: notes & code, expensing food, start recording
+- **Recap**
+    - Last section in chapter 7, Spliterators
+- **Today:** 
+    - Chapter 8 - Collection API Enhancements, start 9 - Refactoring, testing, and debugging
+- **Next time:** finish 9, start 10 - Domain-specific languages using lambdas
+
+## Overview 
+
 * Using collection factories
     - added in Java 9 
     - new additions to simplify creating small lists, sets and maps
@@ -32,7 +47,7 @@ List<String> friends
 For a set, this is a trick (no Arrays.asSet method, so use HashSet constructor which takes a List), but still is overly verbose and requires unnecessary object allocation:
 
 ```
-Set<String> friends "
+Set<String> friends 
    = new HashSet<>(Arrays.asList("Raphael", "Olivia", Thibaut"));
 ```
 
@@ -123,7 +138,7 @@ System.out.println(actors)
 
 ## 8.2. Working with List and Set
 
--Java 8 introduced a few methods into the List and Set interfaces: `removeIf`, `replaceAll`, and `sort`
+- Java 8 introduced a few methods into the List and Set interfaces: `removeIf`, `replaceAll`, and `sort`
 - All mutate collections, so were added to make mutating code less error prone
 - replaceAll 
 
@@ -163,7 +178,7 @@ for(Map.Entry<String, Integer> entry: ageOfFriends.entrySet()) {
 }
 ```
 
-since Java 8, Map has supported forEach which accepts a `BiConsumer`:
+Since Java 8, Map has supported forEach which accepts a `BiConsumer`:
 
 ```
 ageOfFriends.forEach((friend, age) -> System.out.println(friend + " is " +
@@ -283,7 +298,7 @@ System.out.println(movies);
 
 Output: {Matrix=15, JamesBond=20}
 
-## 8.4. IMPROVED CONCURRENTHASHMAP
+## 8.4. Improved ConcurrentHashMap
 
 The `ConcurrentHashMap` class was introduced to provide a more modern HashMap, which is also concurrency friendly. 
 

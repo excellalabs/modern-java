@@ -24,6 +24,7 @@ public class ParallelStreamHarness {
     // 7.2 Using fork/join framework directly    
     System.out.println("ForkJoin sum done in: " + measurePerf(ForkJoinSumCalculator::forkJoinSum, 10_000_000L) + " msecs" );
 
+    // Custom Spliterator
     WordCount.run();
   }
 

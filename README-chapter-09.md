@@ -198,6 +198,20 @@ String result = pipeline.apply("Aren't labdas really sexy?!!");
 
 _See before/after code samples in book_
 
+# Session 15
+
+_[Recording (9/14/20)]()_
+
+## Agenda
+
+- **Housekeeping**: notes & code, expensing food, start recording
+- **Recap**
+    - Chapter 8 except testing and debugging
+- **Today:** 
+    - Chapter 8 testing and debugging, start chapter 9 - Domain-specific languages using lambdas
+- **Next time:** finish 10, start 11
+
+
 ## 9.3. Testing Lambdas
 
 - Lambdas don't have names to call so can be trickier to test

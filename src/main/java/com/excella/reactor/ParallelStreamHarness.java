@@ -26,6 +26,8 @@ public class ParallelStreamHarness {
 
     // Custom Spliterator
     WordCount.run();
+
+    
   }
 
   public static <T, R> long measurePerf(Function<T, R> f, T input) {

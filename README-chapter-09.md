@@ -200,17 +200,16 @@ _See before/after code samples in book_
 
 # Session 15
 
-_[Recording (9/14/20)]()_
+_[Recording (9/14/20)](https://excella.zoom.us/rec/share/Kwo3cZyJV0-IEjeePINrKnCvdFSx3OPEMrItYDHT2LHoYBdjsjQ2D7eJPhI2sp8.14eEXts2EZwUEdcV)_
 
 ## Agenda
 
 - **Housekeeping**: notes & code, expensing food, start recording
 - **Recap**
-    - Chapter 8 except testing and debugging
+    - Chapter 9 except testing and debugging
 - **Today:** 
     - Chapter 8 testing and debugging, start chapter 9 - Domain-specific languages using lambdas
 - **Next time:** finish 10, start 11
-
 
 ## 9.3. Testing Lambdas
 

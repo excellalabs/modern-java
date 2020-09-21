@@ -1,6 +1,8 @@
 package com.excella.reactor;
 
 
+import com.excella.reactor.stocks.DslHarness;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -16,6 +18,8 @@ public class ReactorApplication {
 
 	public static void main (String[] args)
     {	
-        ParallelStreamHarness.run();
+        //ParallelStreamHarness.run();
+
+        DslHarness.run();
     }
 }

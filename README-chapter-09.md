@@ -208,7 +208,7 @@ _[Recording (9/14/20)](https://excella.zoom.us/rec/share/Kwo3cZyJV0-IEjeePINrKnC
 - **Recap**
     - Chapter 9 except testing and debugging
 - **Today:** 
-    - Chapter 8 testing and debugging, start chapter 9 - Domain-specific languages using lambdas
+    - Chapter 9 testing and debugging, start chapter 10 - Domain-specific languages using lambdas
 - **Next time:** finish 10, start 11
 
 ## 9.3. Testing Lambdas

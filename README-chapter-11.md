@@ -22,6 +22,20 @@ public String getCarInsuranceName(Person person) {
 }
 ```
 
+# Session 17
+
+_[Recording (9/28/20)]()_
+
+## Agenda
+
+- **Housekeeping**: notes & code, expensing food, start recording
+- **Recap**
+    - Finished Chapter 10 remaining DSL patterns, started Chapter 11 - Optionals
+- **Today:** 
+    - Finish chapter 11, start 12 - New Date and Time API
+    
+- **Next time:** finish 12, start 13 - Default methods
+
 What is a person doesn't have a car? Or even is the person is null?
 
 ### 11.1.1. Reducing NullPointerExceptions with defensive checking

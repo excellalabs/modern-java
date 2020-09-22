@@ -185,9 +185,9 @@ _Cons_
  - the main issue in method chaining is the verbosity required to implement the builders. A lot of glue code is necessary to mix the top-level builders with the lower-level ones. 
  - Another evident disadvantage is the fact that you have no way to enforce the indentation convention that you used to underline the nesting hierarchy of the objects in your domain
 
-_[Recording (9/21/20)]()_
-
 # Session 16
+
+_[Recording (9/21/20)](https://excella.zoom.us/rec/share/w5AJ3XFcR0chx6V9Jdst3GVqDxxQQ4m9A6zBh4hasGZOpP1edzxs36T-QtXSaIaU.bVzg01_a16O3-BE7)_
 
 ## Agenda
 
@@ -195,8 +195,8 @@ _[Recording (9/21/20)]()_
 - **Recap**
     - Chapter 9 testing and debugging, Chapter 10 (DSLs) through method chaining
 - **Today:** 
-    - Finish chapter 10, start 11
-- **Next time:** finish 11, start 12
+    - Finish chapter 10, start 11 - Optionals
+- **Next time:** finish 11, start 12 - New Date and Time API
 
 ### 10.3.2. Using nested functions
 

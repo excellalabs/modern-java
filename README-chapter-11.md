@@ -24,7 +24,7 @@ public String getCarInsuranceName(Person person) {
 
 # Session 17
 
-_[Recording (9/28/20)]()_
+_[Recording (10/5/20)](https://excella.zoom.us/rec/share/qUJLkyl0xyCIefj-zCet0o8BxDxzAlyhP47rYeW4uSECsHXj_vhB04wCym_fmSoF.sckRS2EkeDHM1WuE)_
 
 ## Agenda
 
@@ -32,9 +32,9 @@ _[Recording (9/28/20)]()_
 - **Recap**
     - Finished Chapter 10 remaining DSL patterns, started Chapter 11 - Optionals
 - **Today:** 
-    - Finish chapter 11, start 12 - New Date and Time API
+    - Finish chapter 11
     
-- **Next time:** finish 12, start 13 - Default methods
+- **Next time:** 12, start 13 - Default methods
 
 What is a person doesn't have a car? Or even is the person is null?
 
@@ -235,6 +235,7 @@ public Optional<Insurance> nullSafeFindCheapestInsurance(
 - The analogies between the Optional class and the Stream interface aren’t limited to the map and flatMap methods. A third method, filter, behaves in a similar fashion on both classes, in that if the optional is already empty, it doesn’t have any effect; otherwise, it applies the predicate to the value contained in the optional
 
 _Quiz 11.2: Filtering an optional_
+    - see "Quiz 11.1" in [chap11/OptionalMain.java](src/main/java/com/excella/reactor/chap11/OptionalMain.java)
 
 _Table 11.1 summarizes the methods of the Optional class_
 
@@ -282,4 +283,4 @@ Read exercise and do related quiz. Code is in the file, [OptionalHarness.java](s
 
 ## Summary
 
-[Continue to next chapter]()
+[Continue to next chapter](README-Chapter-13.md)

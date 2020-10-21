@@ -283,4 +283,4 @@ Read exercise and do related quiz. Code is in the file, [OptionalHarness.java](s
 
 ## Summary
 
-[Continue to next chapter](README-Chapter-13.md)
+[Continue to next chapter](README-Chapter-12.md)

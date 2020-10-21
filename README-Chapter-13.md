@@ -151,4 +151,4 @@ See the section for the famous diamond inheritance problem.
 
 ## SUMMARY
 
-[Next chapter](README-chapter-14.md)
+[Next chapter](README-Chapter-14.md)

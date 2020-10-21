@@ -284,7 +284,7 @@ Advanced feature
 
 # Session 19
 
-_[Recording (10/21/20)]()_
+_[Recording (10/21/20)](https://excella.zoom.us/rec/share/J8BM-Y1W0cKHRedv19pDSVA-sKRzcGpQprpORRwjqB-2SsmTXFTESs554VbTrgK0.hC6O0FNsKgdq29av)_
 
 ## Agenda
 
@@ -292,7 +292,7 @@ _[Recording (10/21/20)]()_
 - **Recap**
     - Did chapter 12 - New Date and Time API 
 - **Today:** 
-    - Chapter 12 - Date and Time API, start chapter 13 - default methods
+    - Summary of 12, Chapter 12 - Date and Time API, start chapter 13 - default methods
 - **Next time:** Finish 13, start 14 - Java Module System
 
 ### SUMMARY

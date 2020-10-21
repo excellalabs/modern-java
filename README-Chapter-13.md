@@ -1,11 +1,13 @@
 # Chapter 13. Default methods
 
-## What's covered & overview
+## What's covered
 
 * What default methods are
 * Evolving APIs in a compatible way
 * Usage patterns for default methods
 * Resolution rules
+
+## Overview
 
 - Any (nonabstract) class that must provide an implementation for each method causes a problem when library designers need to update an interface to add a new method
 - Indeed, existing concrete classes (which may not be under the interface designers’ control) need to be modified
@@ -105,8 +107,8 @@ public class Monster implements Rotatable, Moveable, Resizable {
 
 ...
 
-Monster m = new Monster();        1
-m.rotateBy(180);                  2
+Monster m = new Monster();        
+m.rotateBy(180);                  
 m.moveVertically(10);   
 
 ```

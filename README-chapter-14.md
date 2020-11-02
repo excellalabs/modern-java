@@ -72,3 +72,23 @@ A `module descriptor` describes and encapsulates one or more packages (and typic
 
 _see Figure 14.2. Core structure of a Java module descriptor (module-info.java)_
 
+# Session 20
+
+_[Recording (11/2/20)]()_
+
+## Agenda
+
+- **Housekeeping**: notes & code, expensing food, start recording
+- **Recap**
+    - Finished chapter 13 - Default methods, most of chapter 14 - Java Module System
+- **Today:** 
+    - Summary of 14, Chapter 15 - Concepts behind CompletableFuture and reactive programming
+- **Next time:** Finish 15, start 16 - CompletableFuture: composable asynchronous programming
+
+## 14.4. DEVELOPING AN APPLICATION WITH THE JAVA MODULE SYSTEM
+
+In this section, you get an overview of the Java 9 Module System by building a simple modular application from the ground up. 
+
+## Summary 
+
+[Continue](README-chapter-15.md)

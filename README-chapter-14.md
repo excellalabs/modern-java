@@ -74,7 +74,7 @@ _see Figure 14.2. Core structure of a Java module descriptor (module-info.java)_
 
 # Session 20
 
-_[Recording (11/2/20)]()_
+_[Recording (11/2/20)](https://excella.zoom.us/rec/share/RNQz-S8KnG1QaucgTInclfD3Uo4kaUlpXw6kntpkqBY7dLcWdfw0Oh2JSn55x2XM.VzvOBirXaYKWod-B)_
 
 ## Agenda
 

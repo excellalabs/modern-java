@@ -1,4 +1,4 @@
-package com.excella;
+package com.excella.forkJoin;
 
 import java.util.Spliterator;
 import java.util.function.Consumer;

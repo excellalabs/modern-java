@@ -1,4 +1,4 @@
-package com.excella;
+package com.excella.parallelStreams;
 
 import java.util.stream.LongStream;
 import java.util.stream.Stream;

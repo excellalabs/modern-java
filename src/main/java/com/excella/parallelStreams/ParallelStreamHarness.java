@@ -1,4 +1,7 @@
-package com.excella;
+package com.excella.parallelStreams;
+
+import com.excella.forkJoin.WordCount;
+import com.excella.forkJoin.ForkJoinSumCalculator;
 
 import java.util.concurrent.ForkJoinPool;
 import java.util.function.Function;

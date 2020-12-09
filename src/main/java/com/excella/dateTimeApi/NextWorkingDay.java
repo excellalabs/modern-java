@@ -1,4 +1,4 @@
-package com.excella.chap12DateTimeApi;
+package com.excella.dateTimeApi;
 
 import java.time.DayOfWeek;
 import java.time.temporal.ChronoField;

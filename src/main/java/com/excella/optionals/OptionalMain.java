@@ -1,4 +1,4 @@
-package com.excella.chap11;
+package com.excella.optionals;
 
 import static java.util.stream.Collectors.toSet;
 

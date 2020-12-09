@@ -1,7 +1,8 @@
 package com.excella;
 
-import com.excella.chap11.OptionalMain;
-import com.excella.chap12DateTimeApi.DateAndTimeAPIHarness;
+import com.excella.optionals.OptionalMain;
+import com.excella.dateTimeApi.DateAndTimeAPIHarness;
+import com.excella.parallelStreams.ParallelStreamHarness;
 import com.excella.stocks.DslHarness;
 
 public class Application {
@@ -14,15 +15,12 @@ public class Application {
 
     private static void ConsoleCode() {
         ParallelStreamHarness.run();
+
         DslHarness.run();
 
         OptionalMain optionalMain = new OptionalMain();
         optionalMain.run();
 
         DateAndTimeAPIHarness.run();
-
-
-//        TempInfoSkaffold tempInfoSkaffold = new TempInfoSkaffold();
-//        tempInfoSkaffold.run();
     }
 }

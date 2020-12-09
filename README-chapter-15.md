@@ -195,6 +195,19 @@ Note,
     - other uses of g may require a Future-style version, so you prefer a uniform API style.
     - to enable parallel hardware to execute your programs as fast as possible, it’s useful to have more and smaller tasks (within reason)
 
+# Session 21
+
+_[Recording (11/9/20)]()_
+
+## Agenda
+
+- **Housekeeping**: notes & code, expensing food, start recording
+- **Recap**
+    - Finished chapter 14 - Java Module System, started chapter 15 - Concepts behind CompletableFuture and reactive programming
+- **Today:** 
+    - Continue Chapter 15
+- **Next time:** Finish 15, start 16 - CompletableFuture: composable asynchronous programming
+
 ### 15.2.2. Reactive-style API
 
 Callback-style programming, changing the the signature of f and g to:

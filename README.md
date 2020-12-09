@@ -68,6 +68,14 @@ Functional reactive programming is becoming the main way to programming these da
 
 ## Environment Setup
 
+1. Install Java 11 (or the latest but update app references) & gradle
+
+1. Build via `./gradlew build`
+
+1. Run via `./gradlew run` 
+
+### Docker way 
+
 1. Install [Docker](https://www.docker.com/products/docker-desktop) 
 1. Clone this repo
 1. Make sure you can do the following:

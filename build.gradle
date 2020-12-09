@@ -1,53 +1,65 @@
 plugins {
-	id 'org.springframework.boot' version '2.1.4.RELEASE'
-	id "io.franzbecker.gradle-lombok" version '3.0.0'
-	id 'java'
+	id("com.github.johnrengelman.shadow") version "6.1.0"
+	id("io.micronaut.application") version "1.2.0"
 }
 
-apply plugin: 'io.spring.dependency-management'
-apply plugin: 'io.franzbecker.gradle-lombok'
-
-group = 'com.excella'
-version = '0.0.1-SNAPSHOT'
-sourceCompatibility = JavaVersion.VERSION_11
-targetCompatibility = JavaVersion.VERSION_11
-
-configurations {
-	compileOnly {
-		extendsFrom annotationProcessor
-	}
-}
+version = "0.1"
+group = "com.excella"
 
 repositories {
 	mavenCentral()
+	jcenter()
+}
+
+micronaut {
+	runtime("netty")
+	testRuntime("junit5")
+	processing {
+		incremental(true)
+		annotations("com.excella.*")
+	}
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-actuator'
-	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
-	implementation 'org.springframework.boot:spring-boot-starter-jetty'
-	implementation('org.springframework.boot:spring-boot-starter-web') {
-		exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
-	}
-	implementation 'org.springframework.boot:spring-boot-starter-webflux'
-	implementation 'org.springframework.boot:spring-boot-starter-logging'
-	implementation 'org.springframework.data:spring-data-jdbc'
-	implementation 'org.flywaydb:flyway-core'
-	implementation 'io.springfox:springfox-swagger2:2.9.2'
-	implementation 'io.springfox:springfox-swagger-ui:2.9.2'
-	implementation 'net.logstash.logback:logstash-logback-encoder:5.3'
-	implementation 'org.springframework.boot:spring-boot-configuration-processor'
+	annotationProcessor("org.projectlombok:lombok")
+	compileOnly("org.projectlombok:lombok")
 
-	implementation 'org.camunda.bpm.springboot:camunda-bpm-spring-boot-starter:3.3.4'
-	
-	runtimeOnly 'org.postgresql:postgresql'
-	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testImplementation 'io.projectreactor:reactor-test'
-	testImplementation 'com.pholser:junit-quickcheck-core:0.9'
-	testImplementation 'com.pholser:junit-quickcheck-generators:0.9'
-	testCompile("org.assertj:assertj-core:3.11.1")
+	implementation("javax.annotation:javax.annotation-api")
+	implementation("io.swagger.core.v3:swagger-annotations")
 
+	annotationProcessor("io.micronaut.openapi:micronaut-openapi")
+	implementation("io.micronaut:micronaut-validation")
+	implementation("io.micronaut:micronaut-runtime")
+	implementation("io.micronaut:micronaut-http-client")
+	implementation("io.micronaut:micronaut-tracing")
+	implementation("io.micronaut.rxjava3:micronaut-rxjava3")
+
+	runtimeOnly("io.jaegertracing:jaeger-thrift")
+
+	implementation("org.apache.logging.log4j:log4j-core:2.12.1")
+	runtimeOnly("org.apache.logging.log4j:log4j-api:2.12.1")
+	runtimeOnly("org.apache.logging.log4j:log4j-slf4j-impl:2.12.1")
+
+	// Benchmarking
 	implementation 'org.openjdk.jmh:jmh-core:1.17.4'
 	implementation 'org.openjdk.jmh:jmh-generator-annprocess:1.17.4'
+
+	testImplementation 'com.pholser:junit-quickcheck-core:0.9'
+	testImplementation 'com.pholser:junit-quickcheck-generators:0.9'
 }
+
+
+application {
+	mainClass.set("com.excella.java.Application")
+}
+
+java {
+	sourceCompatibility = JavaVersion.toVersion("11")
+	targetCompatibility = JavaVersion.toVersion("11")
+}
+
+tasks {
+
+
+}
+

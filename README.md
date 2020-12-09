@@ -9,15 +9,21 @@ Below you will find:
 
 ### Modern programming anyone? 
 
-Let's dive deep into modern programming, using the book Modern Java in Action (feel free to expense or get via O'Reilly Learning). We will dive deep into Functional Reactive Programming (FRP), including lambdas, streams, and practical functional and concurrency approaches in depth. We will build a cloud native app along the way to reinforce the concepts and deepen our knowledge. 
+Let's dive deep into modern programming, using the book Modern Java in Action (feel free to expense or get via O'Reilly Learning). We will dive deep into Functional Reactive Programming (FRP), including lambdas, streams, and practical functional and concurrency approaches in depth.  
 
 ### Who? 
 
-We will start from scratch but go fast, so no previous FRP knowledge is required, and even if you're experienced with it, we will dive deep so you may fill in some gaps. We won't be going over fundamental programming concepts (types, loops, OO, etc) so experience there is required, but not in Java.
+We will start from general programming knowledge, so no previous FRP knowledge is required, and even if you're experienced with it, we will dive deep so you may fill in some gaps. 
 
 ### Why this topic? 
 
-Functional reactive programming is becoming the main way to programming these days, and represents a large shift from modern standard object oriented approches. There is new material to learn, and while we all learn as we go, it's useful to step back and go over all the material, to know what's there and to dig in deeper. The book Modern Java in Action is all about FRP. It uses Java but the concepts are universally applicable. 
+Functional reactive programming (FRP) is becoming a common way to build systems these, and represents a large shift from modern standard object oriented approaches. There is new material to learn, and while we all learn as we go, it's useful to step back and go over everything, and to dig in deeper. The book Modern Java in Action is all about functional reactive programming. It uses Java but the concepts are universally applicable.
+
+These form the core topics needed by modern Java engineers.  
+
+### The Format
+
+People are expected to read the chapters ahead of time, and we will review & discuss key concepts in the sessions. Coding will be reviewed, but actual coding should be done as a supplement to reinforce the ideas but in our own time. Code from the chapters is in this repo, which should be understood and ideally gone through individually from scratch.  
 
 ### The book
 
@@ -75,26 +81,22 @@ Functional reactive programming is becoming the main way to programming these da
 
 ## Environment Setup
 
-1. Install Java 11 (or the latest but update app references) & gradle
+1. Clone this repo
 
-1. Build via `./gradlew build`
+### Locally installed Java way 
 
+1. Install Java 11 (or the latest but update app references) & gradle\
+1. Build & run tests via `./gradlew build`
 1. Run via `./gradlew run` 
 
 ### Docker way 
 
 1. Install [Docker](https://www.docker.com/products/docker-desktop) 
-1. Clone this repo
-1. Make sure you can do the following:
-
-    1. Start Java container: `./run_app.sh`
-    1. Inside the container:
-    
-        1. Log into the container
-        1. Build & run tests: `./gradlew build`
+1. Create & log into Java container via docker-compose: `./run_app.sh`
+1. Build & run tests: `./gradlew build` & run app via `./gradlew run`
 
 ## Example Code
 
 Much of the example code from the book is implemented in this repo. Throughout the chapter notes, it is referenced.
 
-The code is implemented in the typical Java structure, starting in `java/com/excella/java`
+The code is implemented in the typical Java structure, starting in `Application.java`, where you can choose to run the console-based or controller-based code.

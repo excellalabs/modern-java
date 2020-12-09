@@ -16,7 +16,7 @@ micronaut {
 	testRuntime("junit5")
 	processing {
 		incremental(true)
-		annotations("com.excella.*")
+		annotations("com.excella.modernjava.*")
 	}
 }
 
@@ -50,7 +50,7 @@ dependencies {
 
 
 application {
-	mainClass.set("com.excella.Application")
+	mainClass.set("com.excella.modernjava.Application")
 }
 
 java {

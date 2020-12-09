@@ -97,10 +97,10 @@ You saw how to do this for loops and divide-conquer algorithms in chapter 7, usi
 ## 15.2. SYNCHRONOUS AND ASYNCHRONOUS APIS
 
 - Chapter 7 showed you that Java 8 Streams give you a way to exploit parallel hardware
-- This exploitation happens in two stages: 
-    1. You replace external iteration (explicit for loops) with internal iteration (using Stream methods)
-    1. Then you can use the parallel() method on Streams to allow the elements to be processed in parallel by the Java runtime library instead of rewriting every loop to use complex thread-creation operations. 
-- An additional advantage is that the runtime system is much better informed about the number of available threads when the loop is executed than is the programmer, who can only guess
+    - This exploitation happens in two stages: 
+        1. You replace external iteration (explicit for loops) with internal iteration (using Stream methods)
+        1. Then you can use the parallel() method on Streams to allow the elements to be processed in parallel by the Java runtime library instead of rewriting every loop to use complex thread-creation operations. 
+    - An additional advantage is that the runtime system is much better informed about the number of available threads when the loop is executed than is the programmer, who can only guess
 - Situations other than loop-based computations can also benefit from parallelism, namely **asychronous APIs**. 
 
 Consider this synchronous code:
@@ -386,7 +386,7 @@ Function<Integer, Integer> myfun = add1.andThen(dble);
 - combinators work for Futures and reactive stream in addition to functions
 - box-and-channel diagrams help you change perspective from directly programming concurrency to allowing combinators to do the work internally
 
-## COMPLETABLEFUTURE AND COMBINATORS FOR CONCURRENCY
+## 15.4 COMPLETABLEFUTURE AND COMBINATORS FOR CONCURRENCY
 
 - One problem with the Future interface is that it’s an interface, encouraging you to think of and structure your concurrent coding tasks as Futures, without as much structured support
 - Java 8 brings the ability to compose Futures, using the CompletableFuture implementation of the Future interface. 
@@ -431,7 +431,7 @@ With Streams:
     - Streams have linear processing pipelines
 - Java 9 models reactive programming with interfaces available inside `java.util.concurrent.Flow` and encodes what’s known as the publish-subscribe model
 
-Three main concepts in this model:
+**Three main concepts** in this model:
 - A publisher to which a subscriber can subscribe
 - The connection is known as a subscription
 - Messages (also known an events) are transmitted via the connection
@@ -439,6 +439,315 @@ Three main concepts in this model:
 See _Figure 15.9_
 - Multiple components can subscribe to a single publisher, a component can publish multiple separate streams, and a component can subscribe to multiple publishers
 
+
+# Session 22
+
+_[Recording (12/9/20)]()_
+
+## Agenda
+
+- **Housekeeping**: notes & code, expensing food, start recording
+- **Recap**
+    - Started chapter 15 - got through concepts of Futures, CompleteableFutures and Reactive-style programming
+- **Today:** 
+    - Finish Chapter 15
+- **Next time:** 16 - CompletableFuture: composable asynchronous programming, start 17 - Reactive programming
+    - Monday at lunch (12 EST?
+
+**REVIEW**
+
+- These chapters are all about how threads are abstracted, so it is easier to do something with the result of an operation without actually blocking a thread to wait for the result
+- Better ways to control asynchronous method calls
+- Fully utilize hardware, always occupying all hardware threads
+- You saw how to do this for loops and divide-conquer algorithms in chapter 7 (parallel stream processing and fork/join) but in the rest of this chapter (and in chapters 16 and 17), you see how to do it for method calls, which are typically called asynchronous APIs.
+- We looked at  Futures
+    - CompleteableFuture improves on them, allows you to compose async operations
+    - Reactive adds even more features (to best handle multiple async data streams, and add backpressure)
+- Code update
+    - Hands-on examples
+    - Migrated from Spring Boot to Micronaut 
+        - Significantly faster to do things like importing gradle changes to building and running
+    - Code is organized by domain function now, as opposed to chapter 
+    - Our real world app will be in this repo
+        - Ideas for what it should do? Pull feeds for a keyword from twitter, google news, Facebook
+    - Review running it
+- Areas people thought were interesting, hard to understand 
+
 ### 15.5.1. Example use for summing two flows
 
+A simple but characteristic example of publish-subscribe
+    - _combines events from two sources of information and publishes them for others to see_
+    - Think of a formula in a spreadsheet - when underlying data in a cell is updated, the formula cell updates.
+
+```
+private class SimpleCell {
+    private int value = 0;
+    private String name;
+
+    public SimpleCell(String name) {
+        this.name = name;
+    }
+}
 ...
+
+SimpleCell c2 = new SimpleCell("C2");
+SimpleCell c1 = new SimpleCell("C1");
+
+```
+
+Need a way to subscribe a C3 to subscribe to events of C1 & C2, so introduce Publisher interface, which takes a Subscriber
+
+Let's review the interfaces:
+
+```
+interface Publisher<T> {
+    void subscribe(Subscriber<? super T> subscriber);
+}
+
+interface Subscriber<T> {
+    void onNext(T t);
+}
+```
+
+- The Publisher interface takes a subscriber as an argument that it can communicate with. 
+- The Subscriber<T> interface includes a simple method, onNext, that takes that information as an argument and then is free to provide a specific implementation 
+
+Back to the example...
+
+```
+private class SimpleCell implements Publisher<Integer>, Subscriber<Integer> {
+    private int value = 0;
+    private String name;
+    private List<Subscriber> subscribers = new ArrayList<>();
+
+    public SimpleCell(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public void subscribe(Subscriber<? super Integer> subscriber) {
+        subscribers.add(subscriber);
+    }
+
+    private void notifyAllSubscribers() {                                  1
+        subscribers.forEach(subscriber -> subscriber.onNext(this.value));
+    }
+
+    @Override
+    public void onNext(Integer newValue) {
+        this.value = newValue;                                             2
+        System.out.println(this.name + ":" + this.value);                  3
+        notifyAllSubscribers();                                            4
+    }
+}
+```
+
+A Cell is in fact both a Publisher (can subscribe cells to its events) and a Subscriber (reacts to events from other cells).
+
+- 1 This method notifies all the subscribers with a new value.
+- 2 Reacts to a new value from a cell it is subscribed to by updating its value
+- 3 Prints the value in the console but could be rendering the updated cell as part of an UI
+- 4 Notifies all subscribers about the updated value
+
+Try a simple example:
+
+```
+Simplecell c3 = new SimpleCell("C3");
+SimpleCell c2 = new SimpleCell("C2");
+SimpleCell c1 = new SimpleCell("C1");
+
+c1.subscribe(c3);
+
+c1.onNext(10); // Update value of C1 to 10
+c2.onNext(20); // update value of C2 to 20
+```
+
+This code outputs the following result because C3 is directly subscribed to C1:
+
+```
+C1:10
+C3:10
+C2:20
+```
+
+How do you implement the behavior of "C3=C1+C2" ? You need to introduce a separate class that’s capable of storing two sides of an arithmetic operation (left and right):
+
+```java
+public class ArithmeticCell extends SimpleCell {
+
+    private int left;
+    private int right;
+
+    public ArithmeticCell(String name) {
+        super(name);
+    }
+
+    public void setLeft(int left) {
+        this.left = left;
+        onNext(left + this.right);         1
+    }
+
+    public void setRight(int right) {
+        this.right = right;
+        onNext(right + this.left);         2
+    }
+}
+```
+
+- 1 Update the cell value and notify any subscribers.
+- 2 Update the cell value and notify any subscribers.
+
+Now you can try a more-realistic example:
+
+```
+ArithmeticCell c3 = new ArithmeticCell("C3");
+SimpleCell c2 = new SimpleCell("C2");
+SimpleCell c1 = new SimpleCell("C1");
+
+c1.subscribe(c3::setLeft);
+c2.subscribe(c3::setRight);
+
+c1.onNext(10); // Update value of C1 to 10
+c2.onNext(20); // update value of C2 to 20
+c1.onNext(15); // update value of C1 to 15
+```
+
+The output is
+
+```
+C1:10
+C3:10
+C2:20
+C3:30
+C1:15
+C3:35
+```
+
+- C1 was updated to 15, C3 immediately reacted and updated its value as well
+
+What’s neat about the publisher-subscriber interaction is the fact that you can set up a graph of publishers and subscribers
+
+You could create another cell C5 that depends on C3 and C4 by expressing "C5=C3+C4", for example:
+
+```
+ArithmeticCell c5 = new ArithmeticCell("C5");
+ArithmeticCell c3 = new ArithmeticCell("C3");
+SimpleCell c4 = new SimpleCell("C4");
+SimpleCell c2 = new SimpleCell("C2");
+SimpleCell c1 = new SimpleCell("C1");
+
+c1.subscribe(c3::setLeft);
+c2.subscribe(c3::setRight);
+
+c3.subscribe(c5::setLeft);
+c4.subscribe(c5::setRight);
+```
+
+Then you can perform various updates in your spreadsheet:
+
+```
+c1.onNext(10); // Update value of C1 to 10
+c2.onNext(20); // update value of C2 to 20
+c1.onNext(15); // update value of C1 to 15
+c4.onNext(1); // update value of C4 to 1
+c4.onNext(3); // update value of C4 to 3
+```
+
+These actions result in the following output:
+
+```
+C1:10
+C3:10
+C5:10
+C2:20
+C3:30
+C5:30
+C1:15
+C3:35
+C5:35
+C4:1
+C5:36
+C4:3
+C5:38
+```
+
+Nomenclature
+
+Core idea of pub/sub - Because data flows from publisher (producer) to subscriber (consumer), developers often use words such as upstream and downstream. In the preceding code examples, the data newValue received by the upstream onNext() methods is passed via the call to notifyAllSubscribers() to the downstream onNext() call.
+
+We've left out some straightforward embellishments, as well as backpressure is so vital that we discuss it separately in the next section.
+
+Straightforward things:
+
+- practical programming of flows may want to signal things other than an onNext event, so subscribers (listeners) need to define onError and onComplete methods so that the publisher can indicate exceptions and terminations of data flow
+    - The methods onError and onComplete are supported in the actual Subscriber interface in the Java 9 Flow API
+    - These methods are among the reasons why this protocol is more powerful than the traditional Observer pattern.
+
+
+Pressure & Backpressure
+
+- vital for thread utilization
+
+Pressure 
+
+Suppose that your thermometer, which previously reported a temperature every few seconds, was upgraded to a better one that reports a temperature every millisecond. Could your program react to these events sufficiently quickly, or might some buffer overflow and cause a crash?
+
+Similarly, suppose that you subscribe to a publisher that furnishes all the SMS messages onto your phone. The subscription might work well on my newish phone with only a few SMS messages, but what happens in a few years when there are thousands of messages, all potentially sent via calls to onNext in less than a second? 
+
+This is known as pressure.
+
+Backpressure
+
+Think of a vertical pipe containing messages written on balls. You also need a form of backpressure, such as a mechanism that restricts the number of balls being added to the column.
+
+### 15.5.2. Backpressure
+
+- Limit the rate the Publisher sends data by having the Subscriber send this info
+- The Publisher may have multiple Subscribers, and you want backpressure to affect only the point-to-point connection involved
+
+In the Java 9 Flow API, the Subscriber interface includes a fourth method
+
+```
+void onSubscribe(Subscription subscription);
+```
+
+- called as the first event sent on the channel established between Publisher and Subscriber
+
+```
+interface Subscription {
+    void   cancel();
+    void   request(long n);
+}
+```
+
+The Publisher creates the Subscription object and passes it to the Subscriber, which can call its methods to pass information from the Subscriber back to the Publisher.
+
+Implementing backpressure requires thinking about a range of implementation trade-offs:
+
+- Do you send events to multiple Subscribers at the speed of the slowest, or do you have a separate queue of as-yet-unsent data for each Subscriber?
+- What happens when these queues grow excessively?
+- Do you drop events if the Subscriber isn’t ready for them?
+
+The choice depends on the semantics of the data being sent - losing one temperature report from a sequence may not matter, but losing a credit in your bank account certainly does.
+
+The concept is referred to as **reactive pull-based backpressure**. The concept is called reactive pull-based because it provides a way for the Subscriber to pull (request) more information from the Publisher via events (reactive)
+
+## 15.6. REACTIVE SYSTEMS VS. REACTIVE PROGRAMMING
+
+- They are very different ideas
+
+**Reactive system** -  a program whose architecture allows it to react to changes in its runtime environments. Properties that reactive systems should have are formalized in the Reactive Manifesto (http://www.reactivemanifesto.org)
+    - Responsive, resilient, elastic, message-driven
+
+**Responsive** - a reactive system can respond to inputs in real time rather delaying a simple query because the system is processing a big job for someone else. 
+
+**Resilient** - a system generally doesn’t fail because one component fails; a broken network link shouldn’t affect queries that don’t involve that link, and queries to an unresponsive component can be rerouted to an alternative component. 
+
+**Elastic** - a system can adjust to changes in its workload and continue to execute efficiently. 
+    - As you might dynamically reallocate staff in a bar between serving food and serving drinks so that wait times in both lines are similar, you might adjust the number of worker threads associated with various software services so that no worker is idle while ensuring that each queue continues to be processed.
+
+**Message-driven** - systems have internal APIs based on the box-and-channel model, with components waiting for inputs that are processed, with the results sent as messages to other components to enable the system to be responsive
+
+## SUMMARY
+
+[Continue](README-chapter-16.md)

@@ -19,7 +19,7 @@ services:
     depends_on:
       - db
     working_dir: /app
-    command: ["/app/gradlew", "bootRun"]
+    command: ["/app/gradlew", "run"]
   db:
     image: postgres:11.3
     container_name: postgres

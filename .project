@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>reactor</name>
+	<name>modern-java-in-action-at-excella</name>
 	<comment>Project spring-reactor-template created by Buildship.</comment>
 	<projects>
 	</projects>
@@ -22,7 +22,7 @@
 	</natures>
 	<filteredResources>
 		<filter>
-			<id>1599059603131</id>
+			<id>0</id>
 			<name></name>
 			<type>30</type>
 			<matcher>

@@ -83,5 +83,5 @@ Functional reactive programming is becoming the main way to programming these da
     1. Start Java container: `./run_app.sh`
     1. Inside the container:
     
-        - Compile the app: `./gradlew clean build`
-        - Running tests: `./gradlew test`
+        1. Log into the container
+        1. Build & run tests: `./gradlew build`

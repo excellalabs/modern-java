@@ -77,7 +77,7 @@ People are expected to read the chapters ahead of time, and we will review & dis
 * [Chapter 14](README-chapter-14.md)
 * [Chapter 15](README-chapter-15.md)
 * [Chapter 16](README-chapter-16.md)
-* [Chapter 16](README-chapter-17.md)
+* [Chapter 17](README-chapter-17.md)
 
 ## Environment Setup
 

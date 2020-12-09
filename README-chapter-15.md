@@ -197,9 +197,9 @@ Note,
 
 # Session 21
 
-_[Recording (11/9/20)]()_
+_[Recording (11/9/20)](https://excella.zoom.us/rec/share/BlVLN57iw4O6wkgmcgC_aaInQHmz3WyRcGSF09nK-hMKrj9QqHFHnlHpi5pACEhR.cqCzanQXhmpoqxvG)_
 
-## Agenda
+Agenda
 
 - **Housekeeping**: notes & code, expensing food, start recording
 - **Recap**
@@ -439,17 +439,17 @@ With Streams:
 See _Figure 15.9_
 - Multiple components can subscribe to a single publisher, a component can publish multiple separate streams, and a component can subscribe to multiple publishers
 
-
-# Session 22
+## SESSION 22
 
 _[Recording (12/9/20)]()_
 
-## Agenda
+**Agenda**
 
 - **Housekeeping**: notes & code, expensing food, start recording
 - **Recap**
     - Started chapter 15 - got through concepts of Futures, CompleteableFutures and Reactive-style programming
 - **Today:** 
+    - Review some things
     - Finish Chapter 15
 - **Next time:** 16 - CompletableFuture: composable asynchronous programming, start 17 - Reactive programming
     - Monday at lunch (12 EST?

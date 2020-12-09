@@ -1,5 +1,19 @@
 # Chapter 16. CompletableFuture: composable asynchronous programming
 
+**SESSION 23**
+
+_[Recording ()]()_
+
+**Agenda**
+
+- **Housekeeping**: notes & code, expensing food, start recording
+- **Recap**
+    - Finished chapter 15, started 16 - CompleteableFutures and Reactive-style programming
+- **Today:** 
+    - Finish chapter 16, maybe start 17
+    - Areas people thought were interesting, hard to understand 
+- **Next time:** 16 - CompletableFuture: composable asynchronous programming, start 17 - Reactive programming
+
 This chapter covers
 
 - Creating an asynchronous computation and retrieving its result

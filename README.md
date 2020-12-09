@@ -19,6 +19,10 @@ We will start from scratch but go fast, so no previous FRP knowledge is required
 
 Functional reactive programming is becoming the main way to programming these days, and represents a large shift from modern standard object oriented approches. There is new material to learn, and while we all learn as we go, it's useful to step back and go over all the material, to know what's there and to dig in deeper. The book Modern Java in Action is all about FRP. It uses Java but the concepts are universally applicable. 
 
+### The book
+
+[Modern Java in Action](https://learning.oreilly.com/library/view/modern-java-in/9781617293566/)
+
 ### Outline:
 
 - Part 1: Programming has changed - with functional reactive programming (passing code with behavior parameterization, and lambda expressions)
@@ -62,9 +66,12 @@ Functional reactive programming is becoming the main way to programming these da
     * [Session 14 - 8, start 9](README-chapter-08.md#Session-14)
     * [Session 15 - finish 9, start 10](README-chapter-09.md#Session-15)
     * [Session 16 - finish 10, start 11](README-chapter-10.md#Session-16)
-* [Chapter 12](Readme-Chapter-12.md)
-* [Chapter 13](Readme-Chapter-13.md)
-* [Chapter 14](Readme-chapter-14.md)
+* [Chapter 12](README-Chapter-12.md)
+* [Chapter 13](README-Chapter-13.md)
+* [Chapter 14](README-chapter-14.md)
+* [Chapter 15](README-chapter-15.md)
+* [Chapter 16](README-chapter-16.md)
+* [Chapter 16](README-chapter-17.md)
 
 ## Environment Setup
 
@@ -85,3 +92,9 @@ Functional reactive programming is becoming the main way to programming these da
     
         1. Log into the container
         1. Build & run tests: `./gradlew build`
+
+## Example Code
+
+Much of the example code from the book is implemented in this repo. Throughout the chapter notes, it is referenced.
+
+The code is implemented in the typical Java structure, starting in `java/com/excella/java`

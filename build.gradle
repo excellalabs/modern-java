@@ -50,7 +50,7 @@ dependencies {
 
 
 application {
-	mainClass.set("com.excella.java.Application")
+	mainClass.set("com.excella.Application")
 }
 
 java {

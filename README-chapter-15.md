@@ -1,8 +1,8 @@
 # Chapter 15. Concepts behind CompletableFuture and reactive programming
 
-This chapter covers
+# Contents
 
-* Threads, Futures, and the evolutionary forces causing Java to support richer concurrency APIs
+* Threads, Futures, and the evolutionary forces causing Java to support richer **concurrency** APIs
 * Asynchronous APIs
 * The boxes-and-channels view of concurrent computing
 * CompletableFuture combinators to connect boxes dynamically

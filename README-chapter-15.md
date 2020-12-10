@@ -441,7 +441,7 @@ See _Figure 15.9_
 
 ## SESSION 22
 
-_[Recording (12/9/20)]()_
+_[Recording (12/9/20)](https://excella.zoom.us/rec/share/q2gfeJ88OcNeavC37z8PXVPJQ8nbM4GpLxvGBJtpi5t8j9NBJJ8tuAsAwItduweg.qfEv9l13tYNB4_Bo)_
 
 **Agenda**
 

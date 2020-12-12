@@ -750,4 +750,25 @@ The concept is referred to as **reactive pull-based backpressure**. The concept 
 
 ## SUMMARY
 
+## Other Key Reactive Resources
+
+- [Technology Radar - WebFlux](https://www.thoughtworks.com/radar/languages-and-frameworks/webflux) - 
+    - trial since 2019, WebFlux is Spring's implementation of Reactive Streams. 
+    - Recommends it especially for live data, large microservice ecosystems where high performance is important. Reactive Streams is encouraged in general, but requires significant shift in thinking
+- [Reactive Streams specification](https://github.com/reactive-streams/) - specification based on the [Reactive Manifesto](Reactive Manifesto) including
+        - API that specifies the types to implement Reactive Streams and achieve interoperability between different implementations
+        - The Technology Compatibility Kit (TCK) is a standard test suite for conformance testing of implementations
+
+        - java.util.concurrent.Flow ~= Reactive Streams specification (Java), ReactiveX (Java) 
+
+- [ReactiveX languages, platforms & frameworks](http://reactivex.io/languages.html)
+
+
+
+
+https://www.reactive-streams.org
+
+ReactiveX harmonizes the Iterable and Observable types. The only difference between them is the direction in which the data flows. This is very important because now any operation you can perform on an Iterable, you can also perform on an Observable.
+
+
 [Continue](README-chapter-16.md)

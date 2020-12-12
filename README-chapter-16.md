@@ -10,7 +10,7 @@ _[Recording ()]()_
 - **Recap**
     - Finished chapter 15, started 16 - CompleteableFutures and Reactive-style programming
 - **Today:** 
-    - Finish chapter 16, maybe start 17
+    - Do chapter 16, maybe start 17
     - Areas people thought were interesting, hard to understand 
 - **Next time:** 16 - CompletableFuture: composable asynchronous programming, start 17 - Reactive programming
 

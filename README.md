@@ -9,7 +9,7 @@ Below you will find:
 
 ### Modern programming anyone? 
 
-Let's dive deep into modern programming, using the book Modern Java in Action (feel free to expense or get via O'Reilly Learning). We will dive deep into Functional Reactive Programming (FRP), including lambdas, streams, and practical functional and concurrency approaches in depth.  
+Let's dive deep into modern programming, using the book [Modern Java in Action](https://learning.oreilly.com/library/view/modern-java-in/9781617293566/) (feel free to expense or get via O'Reilly Learning). We will dive deep into Functional Reactive Programming (FRP), including lambdas, streams, and practical functional and concurrency approaches in depth.  
 
 ### Who? 
 
@@ -17,13 +17,13 @@ We will start from general programming knowledge, so no previous FRP knowledge i
 
 ### Why this topic? 
 
-Functional reactive programming (FRP) is becoming a common way to build systems these, and represents a large shift from modern standard object oriented approaches. There is new material to learn, and while we all learn as we go, it's useful to step back and go over everything, and to dig in deeper. The book Modern Java in Action is all about functional reactive programming. It uses Java but the concepts are universally applicable.
+Functional reactive programming (FRP) is becoming a common way to build systems these days in order to utilize hardware and thrive in a distributed environment, and represents a large shift from modern standard object oriented approaches, so requires some re-training. Modern Java in Action is all about functional reactive programming. It uses Java but the concepts are universally applicable.
 
-These form the core topics needed by modern Java engineers.  
+This topic encompasses the core skills needed by modern Java engineers.  
 
 ### The Format
 
-People are expected to read the chapters ahead of time, and we will review & discuss key concepts in the sessions. Coding will be reviewed, but actual coding should be done as a supplement to reinforce the ideas but in our own time. Code from the chapters is in this repo, which should be understood and ideally gone through individually from scratch.  
+People are expected to read the chapters ahead of time, and we will review & discuss key concepts in the sessions. Coding will be reviewed, but actual coding should be done as a supplement to reinforce the ideas but in our own time. Code from the chapters is in this repo, which should be understood and ideally gone through individually from scratch.
 
 ### The book
 

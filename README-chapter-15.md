@@ -750,25 +750,87 @@ The concept is referred to as **reactive pull-based backpressure**. The concept 
 
 ## SUMMARY
 
+**SESSION 23**
+
+_[Recording ()]()_
+
+**Agenda**
+
+- **Housekeeping**: notes & code, expensing food, start recording
+- **Recap**
+    - Finished chapter 15, started 16 - CompleteableFutures and Reactive-style programming
+- **Today:** 
+    - Do chapter 16, maybe start 17
+    - Areas people thought were interesting, hard to understand 
+    - Code exercise, feedback:
+        - Go through it next time? Vote.
+        - Build upon it
+        - We may reduce time on material
+    
+- **Next time:** 16 - CompletableFuture: composable asynchronous programming, start 17 - Reactive programming
+
 ## Other Key Reactive Resources
 
-- [Technology Radar - WebFlux](https://www.thoughtworks.com/radar/languages-and-frameworks/webflux) - 
+- [Reactive Streams specification](https://github.com/reactive-streams/) - specification based on the [Reactive Manifesto](Reactive Manifesto) including
+    - API that specifies the types to implement Reactive Streams and achieve interoperability between different implementations
+    - The Technology Compatibility Kit (TCK) is a standard test suite for conformance testing of implementations
+
+_Reactive Hierarchy in Java_
+ 
+Frameworks based on the [Reactive Streams spec](https://github.com/reactive-streams/reactive-streams-jvm), the `org.reactivestreams` interfaces:
+- ReactiveX
+- Akka Streams Framework
+- Vert.x
+- Flow in the Java SDK - bundled into JDK
+
+For example, `java.util.concurrent.Flow` interfaces ~= org.reactivestreams interfaces
+    Publisher
+    Subscriber
+    Subscription
+    Processor 
+
+The Reactive specification was born before Java 9 and introduction of Flow, therefore 3rd party libraries (i.e. RxJava) are based on external `reactive-streams.jar`, rather than JDK
+
+For example, 
+- RxJava's Flowable and Reactor's Flux implement org.reactivestreams.Publisher
+ 
+- [ReactiveX languages, platforms & frameworks](http://reactivex.io)
+
+Create, Combine, Listen: 
+- Create event streams or data streams
+- Compose and transform streams with query-like operations
+- Subscribe to any observable stream to perform side effects
+
+"A combination of the best ideas from the Observer pattern, the Iterator pattern, and functional programming"
+
+ReactiveX harmonizes the Iterable and Observable types 
+- The only difference between them is the direction in which the data flows 
+- This is very important because now any operation you can perform on an Iterable, you can also perform on an Observable
+
+_Availability_
+
+"ReactiveX is everywhere, and it's meant for everything"
+
+Frontend
+- Manipulate UI events and API responses
+- Web - RxJS, Mobile - Rx.NET and RxJava
+
+Cross-Platform
+- Java, Scala, C#, C++, Clojure, JavaScript, Python, Groovy, JRuby, and others
+
+See list of [languages](http://reactivex.io/languages.html).
+
+- [Reactor vs RxJava](https://www.nurkiewicz.com/2019/02/rxjava-vs-reactor.html)
+
+- [WebFlux (Technology Radar)](https://www.thoughtworks.com/radar/languages-and-frameworks/webflux) - 
     - trial since 2019, WebFlux is Spring's implementation of Reactive Streams. 
     - Recommends it especially for live data, large microservice ecosystems where high performance is important. Reactive Streams is encouraged in general, but requires significant shift in thinking
-- [Reactive Streams specification](https://github.com/reactive-streams/) - specification based on the [Reactive Manifesto](Reactive Manifesto) including
-        - API that specifies the types to implement Reactive Streams and achieve interoperability between different implementations
-        - The Technology Compatibility Kit (TCK) is a standard test suite for conformance testing of implementations
 
-        - java.util.concurrent.Flow ~= Reactive Streams specification (Java), ReactiveX (Java) 
-
-- [ReactiveX languages, platforms & frameworks](http://reactivex.io/languages.html)
+Reactive Streams <- WebFlux, Netty <- Reactor
+Reactive Streams <- RxJava, Netty
 
 
+RxJava->Reactor->NIO->Netty->Reactor netty
 
-
-https://www.reactive-streams.org
-
-ReactiveX harmonizes the Iterable and Observable types. The only difference between them is the direction in which the data flows. This is very important because now any operation you can perform on an Iterable, you can also perform on an Observable.
-
-
+    
 [Continue](README-chapter-16.md)

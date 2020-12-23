@@ -752,7 +752,7 @@ The concept is referred to as **reactive pull-based backpressure**. The concept 
 
 **SESSION 23**
 
-_[Recording ()]()_
+_[Recording]()_
 
 **Agenda**
 
@@ -760,34 +760,54 @@ _[Recording ()]()_
 - **Recap**
     - Finished chapter 15, started 16 - CompleteableFutures and Reactive-style programming
 - **Today:** 
-    - Do chapter 16, maybe start 17
-    - Areas people thought were interesting, hard to understand 
-    - Code exercise, feedback:
-        - Go through it next time? Vote.
-        - Build upon it
-        - We may reduce time on material
-    
-- **Next time:** 16 - CompletableFuture: composable asynchronous programming, start 17 - Reactive programming
+    - Go over _Other Key Reactive Resources_
+    - _Review_ chapter 16 content, start 17
+        - Areas people thought were interesting, hard to understand 
+    - Chapter 16 Code exercise (16.2)
+- **For Next time:** 
+    - We will quickly review through 16 code exercise
+    - Finish reading Chapter 17 (Reactive programming)
+    - Try 17.2.1 code exercise 
+    - Start reading chapter 18
 
 ## Other Key Reactive Resources
 
-- [Reactive Streams specification](https://github.com/reactive-streams/) - specification based on the [Reactive Manifesto](Reactive Manifesto) including
+### Reactive Landscape Overview, in Java
+
+Components in a reactive application: 
+
+```
+Reactive Streams/Flow <- Web framework -> reactive implementation -> non-blocking server -> non-blocking I/O libraries
+```
+
+Examples: 
+```
+Reactive Streams/Flow <- WebFlux/Spring Boot -> Reactor -> Netty -> Nio Java non-blocking I/O libraries
+```
+
+```
+Reactive Streams/Flow <- Micronaut -> RxJava -> Netty -> Nio Java non-blocking I/O libraries
+```
+
+### Definitions 
+
+**Reactive Streams**
+
+- [Reactive Streams specification](https://github.com/reactive-streams/) - specification based on the [Reactive Manifesto](https://www.reactivemanifesto.org/) including
     - API that specifies the types to implement Reactive Streams and achieve interoperability between different implementations
     - The Technology Compatibility Kit (TCK) is a standard test suite for conformance testing of implementations
 
-_Reactive Hierarchy in Java_
- 
 Frameworks based on the [Reactive Streams spec](https://github.com/reactive-streams/reactive-streams-jvm), the `org.reactivestreams` interfaces:
 - ReactiveX
 - Akka Streams Framework
 - Vert.x
-- Flow in the Java SDK - bundled into JDK
+- Flow in the Java SDK
 
 For example, `java.util.concurrent.Flow` interfaces ~= org.reactivestreams interfaces
-    Publisher
-    Subscriber
-    Subscription
-    Processor 
+- Publisher
+- Subscriber
+- Subscription
+- Processor 
 
 The Reactive specification was born before Java 9 and introduction of Flow, therefore 3rd party libraries (i.e. RxJava) are based on external `reactive-streams.jar`, rather than JDK
 
@@ -796,7 +816,7 @@ For example,
  
 - [ReactiveX languages, platforms & frameworks](http://reactivex.io)
 
-Create, Combine, Listen: 
+It's goal is to enable reactive. It advertises, Create, Combine, Listen: 
 - Create event streams or data streams
 - Compose and transform streams with query-like operations
 - Subscribe to any observable stream to perform side effects
@@ -807,7 +827,7 @@ ReactiveX harmonizes the Iterable and Observable types
 - The only difference between them is the direction in which the data flows 
 - This is very important because now any operation you can perform on an Iterable, you can also perform on an Observable
 
-_Availability_
+ Availability
 
 "ReactiveX is everywhere, and it's meant for everything"
 
@@ -820,17 +840,32 @@ Cross-Platform
 
 See list of [languages](http://reactivex.io/languages.html).
 
-- [Reactor vs RxJava](https://www.nurkiewicz.com/2019/02/rxjava-vs-reactor.html)
+**[WebFlux](https://docs.spring.io/spring-framework/docs/current/reference/html/web-reactive.html#webflux-reactive-libraries)**: reactive-stack web framework, fully non-blocking, supports back pressure, and runs on servers such as Netty, Undertow and Servlet 3.1+ containers
 
-- [WebFlux (Technology Radar)](https://www.thoughtworks.com/radar/languages-and-frameworks/webflux) - 
-    - trial since 2019, WebFlux is Spring's implementation of Reactive Streams. 
-    - Recommends it especially for live data, large microservice ecosystems where high performance is important. Reactive Streams is encouraged in general, but requires significant shift in thinking
+- [Technology Radar](https://www.thoughtworks.com/radar/languages-and-frameworks/webflux) 
+- trial since 2019, WebFlux is Spring's web framework implementation of Reactive Streams. 
+- Recommends it especially for live data, large microservice ecosystems where high performance is important. Reactive Streams is encouraged in general, but requires significant shift in thinking
 
-Reactive Streams <- WebFlux, Netty <- Reactor
-Reactive Streams <- RxJava, Netty
+Reviewing our hierarchy... 
 
+```
+Reactive Streams/Flow <- Web framework -> reactive implementation -> non-blocking server -> non-blocking I/O libraries
+```
 
-RxJava->Reactor->NIO->Netty->Reactor netty
+Example: 
+```
+Reactive Streams/Flow <- WebFlux -> Reactor -> Netty -> Nio Java non-blocking I/O libraries
+```
 
+**Reactor** - reactive libraries
+
+**RxJava** - reactive libraries...
+
+**Netty** - NIO client/server framework for developing non-blocking network applications such as protocol servers and clients
+
+**NIO** - "New Input/Output" - the `java.nio` package was added to the JDK in v1.4 (2002), to aid with non-blocking input/output processing.
+    - Traditionally, you have a separate thread for each concurrent HTTP client connection, which is hard to scale
+    - The traditional I/O APIs also block the current thread when reading or writing
+    - This is how your web application grinds to a halt when you have a database deadlock and all 100 connections in your connection pool are allocated
     
 [Continue](README-chapter-16.md)

@@ -870,7 +870,7 @@ Reactive Streams/Flow <- WebFlux -> Reactor -> Netty -> Nio Java non-blocking I/
     
 ### Checking out Micronaut
 
-It's good to be fully versed from top to bottom in a web framework, typically that is Sprin Boot these days in Java, but a microframework is worth looking at as well. Here is a brief overview of one of the most popular, Micronaut.
+It's good to be fully versed from top to bottom in a web framework, typically that is Spring Boot these days in Java, but a microframework is worth looking at as well as a native reative/nonblocking and more performant & modern java framework. Here is a brief overview of one of the most popular, Micronaut.
 
 - modern, JVM-based, full stack Java micro(?) framework, innovative in it uses compile-time dependency injection without using reflection, yielding better startup, runtime perf, and memory consumption. More overview [here](https://docs.micronaut.io/latest/guide/index.html#introduction).
 - Built as non-blocking from the ground up, web framework is non-blocking (and uses RxJava2 by default) and uses the non-blocking Netty for a web server

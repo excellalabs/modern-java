@@ -752,7 +752,7 @@ The concept is referred to as **reactive pull-based backpressure**. The concept 
 
 **SESSION 23**
 
-_[Recording]()_
+_[Recording](https://excella.zoom.us/rec/share/2s7Soe8Fa1u88FcsWfWuWiKCyA2pHs0S9_5lf8ikAKinjoKcsnLpv_HNOjpMYrBb.2xJ45WL6Lf4I81CY)_
 
 **Agenda**
 
@@ -868,4 +868,21 @@ Reactive Streams/Flow <- WebFlux -> Reactor -> Netty -> Nio Java non-blocking I/
     - The traditional I/O APIs also block the current thread when reading or writing
     - This is how your web application grinds to a halt when you have a database deadlock and all 100 connections in your connection pool are allocated
     
+### Checking out Micronaut
+
+It's good to be fully versed from top to bottom in a web framework, typically that is Sprin Boot these days in Java, but a microframework is worth looking at as well. Here is a brief overview of one of the most popular, Micronaut.
+
+- modern, JVM-based, full stack Java micro(?) framework, innovative in it uses compile-time dependency injection without using reflection, yielding better startup, runtime perf, and memory consumption. More overview [here](https://docs.micronaut.io/latest/guide/index.html#introduction).
+- Built as non-blocking from the ground up, web framework is non-blocking (and uses RxJava2 by default) and uses the non-blocking Netty for a web server
+- Cloud native features are built in such as building serverless pieces and integrating with service discovery
+See the Micronaut Docs for everything else
+
+Micronaut uses RxJava 2 by default, but also includes other reactive libraries. It apparently works with RxJava 3 and Reactor as well, but here's the typical stack:
+
+```
+Reactive Streams interfaces (not Flow) <- Micronaut for the reactive-enabled web framework -> RxJava for the reactive implementation -> Netty for the non-blocking web server -> Nio Java non-blocking I/O libraries
+```
+
+Micronaut and ORMs - it doesn't seem like micronaut prescribes an ORM in their docs OOTB, but GORM for Hibernate seems to be typical and they also have a driver for classic Hibernate/JPA (as well as GORM for Mongo & Neo4j, Lettuce for Redis, etc), https://docs.micronaut.io/latest/guide/index.html#dataAccess
+
 [Continue](README-chapter-16.md)

@@ -864,15 +864,15 @@ Reactive Streams/Flow <- WebFlux -> Reactor -> Netty -> Nio Java non-blocking I/
 **Netty** - NIO client/server framework for developing non-blocking network applications such as protocol servers and clients
 
 **NIO** - "New Input/Output" - the `java.nio` package was added to the JDK in v1.4 (2002), to aid with non-blocking input/output processing.
-    - Traditionally, you have a separate thread for each concurrent HTTP client connection, which is hard to scale
-    - The traditional I/O APIs also block the current thread when reading or writing
-    - This is how your web application grinds to a halt when you have a database deadlock and all 100 connections in your connection pool are allocated
-    
+- Traditionally, you have a separate thread for each concurrent HTTP client connection, which is hard to scale
+- The traditional I/O APIs also block the current thread when reading or writing
+- This is how your web application grinds to a halt when you have a database deadlock and all 100 connections in your connection pool are allocated
+
 ### Checking out Micronaut
 
 It's good to be fully versed from top to bottom in a web framework, typically that is Spring Boot these days in Java, but a microframework is worth looking at as well as a native reative/nonblocking and more performant & modern java framework. Here is a brief overview of one of the most popular, Micronaut.
 
-- modern, JVM-based, full stack Java micro(?) framework, innovative in it uses compile-time dependency injection without using reflection, yielding better startup, runtime perf, and memory consumption. More overview [here](https://docs.micronaut.io/latest/guide/index.html#introduction).
+- modern, JVM-based, full stack Java micro(?) framework (with support for Kotlin and Groovy), innovative in it uses compile-time dependency injection without using reflection, yielding better startup, runtime perf, and memory consumption. More overview [here](https://docs.micronaut.io/latest/guide/index.html#introduction).
 - Built as non-blocking from the ground up, web framework is non-blocking (and uses RxJava2 by default) and uses the non-blocking Netty for a web server
 - Cloud native features are built in such as building serverless pieces and integrating with service discovery
 See the Micronaut Docs for everything else

@@ -85,14 +85,14 @@ People are expected to read the chapters ahead of time, and we will review & dis
 
 ### Locally installed Java way 
 
-1. Install Java 11 (or the latest but update app references) & gradle\
+1. Install Java 11 (or the latest but update app references) & gradle
 1. Build & run tests via `./gradlew build`
 1. Run via `./gradlew run` 
 
 ### Docker way 
 
 1. Install [Docker](https://www.docker.com/products/docker-desktop) 
-1. Create & log into Java container via docker-compose: `./run_app.sh`
+1. Create & log into Java container via docker-compose by running this script: `./run_app.sh`
 1. Build & run tests: `./gradlew build` & run app via `./gradlew run`
 
 ## Example Code

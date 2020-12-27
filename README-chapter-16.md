@@ -74,6 +74,16 @@ To explore the CompletableFuture features, in this section you incrementally dev
 
 Homework, follow steps in this section, and implement it in this solution
 
+1. 16.2.1. Converting a synchronous method into an asynchronous one
+      
+For the purposes of learning how to design an asynchronous API, pretend to be on the other side of the barricade. You’re a wise shop owner who realizes how painful this synchronous API is for its users, and you want to rewrite it as an asynchronous API to make your customers’ lives easier. We're simulating when the consumer of this API invokes this method, it remains blocked and then is idle for 1 second while waiting for its synchronous completion. 
+        
+a. Create the CompletableFuture that will contain the result of the computation.
+a. Execute the computation asynchronously in a different Thread.
+a. Set the value returned by the long computation on the Future when it becomes available.
+a. Return the Future without waiting for the computation of the result it contains to be completed.
+
+
 ## SUMMARY
 
 [Continue to next chapter](README-chapter-17.md)

@@ -4,6 +4,8 @@ import com.excella.modernjava.datetimeapi.DateAndTimeAPIHarness;
 import com.excella.modernjava.optionals.OptionalMain;
 import com.excella.modernjava.dsls.DslHarness;
 import com.excella.modernjava.parallelstreams.ParallelStreamHarness;
+import com.excella.modernjava.shop.Shop;
+import com.excella.modernjava.shop.ShopClient;
 
 public class Application {
 
@@ -14,13 +16,15 @@ public class Application {
     }
 
     private static void ConsoleCode() {
-        ParallelStreamHarness.run();
+//        ParallelStreamHarness.run();
+//
+//        DslHarness.run();
+//
+//        OptionalMain optionalMain = new OptionalMain();
+//        optionalMain.run();
+//
+//        DateAndTimeAPIHarness.run();
 
-        DslHarness.run();
-
-        OptionalMain optionalMain = new OptionalMain();
-        optionalMain.run();
-
-        DateAndTimeAPIHarness.run();
+        ShopClient.run();
     }
 }

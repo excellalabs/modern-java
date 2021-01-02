@@ -72,7 +72,7 @@ To explore the CompletableFuture features, in this section you incrementally dev
 
 ## 16.2. IMPLEMENTING AN ASYNCHRONOUS API
 
-Homework, follow steps in this section, and implement it in this solution
+Homework, follow steps starting in this section and continuing through the rest of the chapter, and implement it in this solution
 
 ## SUMMARY
 

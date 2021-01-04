@@ -147,6 +147,8 @@ Homework, follow steps in this section, and implement it in this solution (see s
        
     1. Call it from a client and display the performance (see Listing 16.9).
     
+    _(solution in branch `exercise-16.3.2`)_
+    
 1. 16.3.2 Making asynchronous requests with CompletableFutures
        
     1. Make the above better by turning all the synchronous invocations into asychronous ones using `CompleteableFutures`
@@ -157,6 +159,8 @@ Homework, follow steps in this section, and implement it in this solution (see s
     - Adding 5th shop makes them closer, adding a second since each shop query takes 1 second and this new one doesn't have a dedicated thread, so waits.
     - CompleteableFuture version is a little faster than the parallelStreams version with 5 shops, but not much. 
     - However you can customize the CompleteableFuture for your thread count needs...
+    
+    _(solution in branch `exercise-16.3.2`)_
 
 1. 16.3.4. Using a custom Executor
 
@@ -164,7 +168,46 @@ Homework, follow steps in this section, and implement it in this solution (see s
 - After this improvement, the CompletableFutures solution takes 1021 milliseconds to process five shops and 1022 milliseconds to process nine shops
 
     1. Create a custom executor 
-    1. Add it to the `supplyAsync` call for finding prices 
+    1. Add it to the `supplyAsync` call for finding prices
+    
+    _(solution in branch `exercise-16.3.4`)_ 
+    
+- It's a good idea to create an Executor that fits the characteristics of your application and use `CompleteableFutures` to submit tasks to it
+- Almost always effective 
+- Something to consider when you make intensive use of asynchronous operations
+
+More advice:
+
+- If doing computation-heavy ops with no I/O, `Streams` interface is most simple and likely more efficient
+    - If all threads are compute-bound, no point in having more threads than processor cores
+- If your parallel units of work involve waiting for I/O (including network connections), `CompleteableFuture` providers more flexibility 
+    - Allows you to match number of threads to the wait/computer ratio (W/C)
+    - The laziness of streams can make it harder to reason about when the waits happen
+
+1. 16.4 Pipelining asynchronous tasks & 16.4.1 Implementing a discount service
+
+Add centralized discount service
+
+- Shops have agreed to use a discount service
+- All agreed to change the format of the result of the getPrice method, which now returns a String in the format ShopName:price:DiscountCode
+
+    1. Grab `Discount` and `Quote` classes from the book or this solution branch
+        - Discount Service also uses the simulated 1s delay 
+    1. Implement discount service per 16.4.1
+    1. Re-implement `findPrices` using a stream pipeline, and see the same issue as before
+         - 5 seconds required to query the five shops sequentially is added to the 5 seconds consumed by the discount service in applying the discount code to the prices returned by the five shops
+    1. Change the code so you're composing synchronous and asynchronous operations (16.4.3) 
+
+    _(solution in branch `exercise-16.4.1`)_
+    
+## 16.4.5. Reflecting on Future vs. CompletableFuture
+
+- Last two examples in listings 16.16 and 16.17 show one of the biggest advantages of CompletableFutures over the other pre-Java 8 Future implementations
+- CompletableFutures use lambda expressions to provide a declarative API
+    - allows you to easily combine and compose various synchronous and asynchronous tasks to perform a complex operation in the most effective way 
+- See _Listing 16.18_ for a tangible idea of the code-readability benefits
+
+    
     
 
 

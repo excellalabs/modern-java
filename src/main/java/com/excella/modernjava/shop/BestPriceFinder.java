@@ -39,4 +39,42 @@ public class BestPriceFinder {
                 .collect(toList());
     }
 
+    /*  ## 16.4.1
+        Runtime:
+        - 5 seconds required to query the five shops sequentially
+        - plus 5 seconds consumed by the discount service in applying the discount code to the prices returned by the five shops
+     */
+    public List<String> findPricesSequential(String product) {
+        return shops.stream()
+                .map(shop -> shop.getPrice(product))
+                .map(Quote::parse)
+                .map(Discount::applyDiscount)
+                .collect(toList());
+    }
+
+    /*  ## 16.4.3 Composing synchronous and asynchronous operations
+
+     */
+    public List<String> findPricesAsync(String product) {
+        List<CompletableFuture<String>> priceFutures = shops.stream()
+                // Query the shop asynchronously by passing a lambda expression to the supplyAsync factory method.
+                // The result of this first transformation is a Stream<CompletableFuture<String>>.
+                .map(shop -> CompletableFuture.supplyAsync(
+                        () -> shop.getPrice(product), executor))
+                // thenApply used here, because invoking any remote service or doing any I/O in general.
+                // It can be performed almost instantaneously and can be done synchronously without introducing any delay.
+                // Note, it doesn’t block your code until the CompletableFuture on which you’re invoking it is complete.
+                .map(future -> future.thenApply(Quote::parse))
+                // Additional async operation, uses thenCompose, allowing you to pipeline two asynchronous operations,
+                // passing the result of the first operation to the second operation when it becomes available.
+                // Main thread not blocked, offer some UI updates!
+                .map(future -> future.thenCompose(quote ->
+                        CompletableFuture.supplyAsync(
+                                () -> Discount.applyDiscount(quote), executor)))
+                .collect(toList());
+        return priceFutures.stream()
+                .map(CompletableFuture::join)
+                .collect(toList());
+    }
+
 }

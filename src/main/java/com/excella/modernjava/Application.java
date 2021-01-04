@@ -1,6 +1,7 @@
 package com.excella.modernjava;
 
-import com.excella.modernjava.shop.ShopClient;
+import com.excella.modernjava.shop.AsyncShopClient;
+import com.excella.modernjava.shop.BestPriceFinderClient;
 
 public class Application {
 
@@ -11,15 +12,17 @@ public class Application {
     }
 
     private static void ConsoleCode() {
-//        ParallelStreamHarness.run();
-//
-//        DslHarness.run();
-//
-//        OptionalMain optionalMain = new OptionalMain();
-//        optionalMain.run();
-//
-//        DateAndTimeAPIHarness.run();
+        //        ParallelStreamHarness.run();
+        //
+        //        DslHarness.run();
+        //
+        //        OptionalMain optionalMain = new OptionalMain();
+        //        optionalMain.run();
+        //
+        //        DateAndTimeAPIHarness.run();
 
-        ShopClient.run();
+        AsyncShopClient.run();
+
+        BestPriceFinderClient.run();
     }
 }

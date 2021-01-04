@@ -2,7 +2,7 @@ package com.excella.modernjava.shop;
 
 import java.util.concurrent.Future;
 
-public class ShopClient {
+public class AsyncShopClient {
     public static void run() {
         AsyncShop shop = new AsyncShop();
         long start = System.nanoTime();

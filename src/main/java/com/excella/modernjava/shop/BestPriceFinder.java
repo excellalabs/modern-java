@@ -12,10 +12,22 @@ public class BestPriceFinder {
             new Shop("BuyItAll"));
 
     public List<String> findPrices(String product) {
-        /// Exercise 16.3.1: compare total execution time when removing parallel
-        return shops.parallelStream()
-                .map(shop -> String.format("%s price is %s",
-                        shop.getName(), shop.getPrice(product)))
+
+        /// Exercise 16.3.2:
+        ///     - the below commented code has to wait for all prices to return before the list can return, as it returns List<CompletableFuture<String>>
+        ///     - Refactored betlow that to fix
+
+        //        return shops.stream()
+        //                .map(shop -> CompletableFuture.supplyAsync(
+        //                        () -> String.format("%s price is %s", shop.getName(), shop.getPrice(product))))
+        //                .collect(toList());
+
+        List<CompletableFuture<String>> priceFutures = shops.stream()
+                .map(shop -> CompletableFuture.supplyAsync(
+                        () -> String.format("%s price is %s", shop.getName(), shop.getPrice(product))))
+                .collect(toList());
+        return priceFutures.stream()
+                .map(CompletableFuture::join)
                 .collect(toList());
     }
 

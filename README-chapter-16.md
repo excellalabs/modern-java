@@ -1,3 +1,23 @@
+**SESSION 24**
+
+_[Recording]()_
+
+**Agenda**
+
+- **Housekeeping**: notes & code, expensing food, start recording
+- **Recap**
+    - Went over [Other Key Reactive Resources](https://github.com/excellalabs/modern-java/blob/master/README-chapter-15.md#other-key-reactive-resources)
+- **Today:** 
+    - Go over _Other Key Reactive Resources_
+    - _Review_ chapter 16 content, start 17
+        - Areas people thought were interesting, hard to understand 
+    - Chapter 16 Code exercise (16.2)
+- **For Next time:** 
+    - We will quickly review through 16 code exercise
+    - Finish reading Chapter 17 (Reactive programming)
+    - Try 17.2.1 code exercise 
+    - Start reading chapter 18
+    
 # Chapter 16. CompletableFuture: composable asynchronous programming
 
 This chapter covers
@@ -14,8 +34,8 @@ This chapter covers
 
 We started with futures...
 
-- The Future interface was introduced in Java 5 to model a result made available at some point in the future
-- A query to a remote service won’t be available immediately when the caller makes the request, for example. 
+- The `Future` interface was introduced in Java 5 to model a result made available at some point in the future
+- For example, a query to a remote service won’t be available immediately when the caller makes the request 
 - The Future interface models an asynchronous computation and provides a reference to its result that becomes available when the computation itself is completed
     - Triggering a potentially time-consuming action inside a Future allows the caller Thread to continue doing useful work instead of waiting for the operation’s result
 - Friendlier than working with lower-level Threads
@@ -59,22 +79,27 @@ try {
     - Programmatically completing a Future (that is, by providing the result of the asynchronous operation manually)
     - Reacting to a Future completion (that is, being notified when the completion happens and then being able to perform a further action with the result of the Future instead of being blocked while waiting for its result)
 
+Let's explore how `CompleteableFutures` offers some of these features...
+ 
 ### 16.1.2. Using CompletableFutures to build an asynchronous application
 
-To explore the CompletableFuture features, in this section you incrementally develop a best-price-finder application that contacts multiple online shops to find the lowest price for a given product or service. Along the way, you learn several important skills:
+To explore the `CompletableFuture` features, in this section you incrementally develop a best-price-finder application that contacts multiple online shops to find the lowest price for a given product or service. 
 
-- How to provide an asynchronous API for your customers (useful if you’re the owner of one of the online shops).
-- How to make your code nonblocking when you’re a consumer of a synchronous API. 
-    - You discover how to pipeline two subsequent asynchronous operations, merging them into a single asynchronous computation. 
+Along the way, you learn several **important skills**:
+
+- How to **provide an asynchronous API** for your customers (useful if you’re the owner of one of the online shops).
+- How to **make your code nonblocking when you’re a consumer of a synchronous API**. 
+- How to **pipeline two subsequent asynchronous operations, merging them into a single asynchronous computation**. 
     - The situation is, the online shop returns a discount code along with the original price of the item you wanted to buy. You have to contact a second remote discount service to find out the percentage discount associated with this discount code before calculating the actual price of that item.
-- Learn how to reactively process events representing the completion of an asynchronous operation and how doing so allows the best-price-finder application to constantly update the best-buy quote for the item you want to buy as each shop returns its price, instead of waiting for all the shops to return their respective quotes. 
-- This skill also averts the scenario in which the user sees a blank screen forever if one of the shops’ servers is down
+- Learn how to **reactively process events representing the completion of an asynchronous operation** 
+    - allows the best-price-finder application to constantly update the best-buy quote for the item you want to buy as each shop returns its price, instead of waiting for all the shops to return their respective quotes. 
+    -  also averts the scenario in which the user sees a blank screen forever if one of the shops’ servers is down
 
 ## 16.2. IMPLEMENTING AN ASYNCHRONOUS API
 
-Homework, follow steps in this section, and implement it in this solution
+Homework, follow steps in this section, and implement it in this solution (see section just above for review)
 
-1. 16.2.1. Converting a synchronous method into an asynchronous one
+1. 16.2.1. Converting a synchronous method into an asynchronous one 
       
     For the purposes of learning how to design an asynchronous API, pretend to be on the other side of the barricade. You’re a wise shop owner who realizes how painful this synchronous API is for its users, and you want to rewrite it as an asynchronous API to make your customers’ lives easier. We're simulating when the consumer of this API invokes this method, it remains blocked and then is idle for 1 second while waiting for its synchronous completion. 
             
@@ -87,6 +112,23 @@ Homework, follow steps in this section, and implement it in this solution
     Shop client: 
     1. Query the shop to retrieve the price of a product.
     1. Read the price from the Future or block until it becomes available.
+
+    _(solution in branch `exercise-16.2.1`)_
+    
+1. 16.2.2. Dealing with errors 
+
+    Key points:
+    - clients should use overloaded `get` method to pass timeout
+    - propagate the Exception that caused the problem inside the `CompletableFuture` through its `completeExceptionally` method
+
+    Exceptions and unhandled, so will remain confined in the thread which is trying to calculate the product price, so kills it. This will block the client waiting for the result forever. 
+    
+    Handle the exception in the proper way:  
+    
+    1. If the price calculation completed normally, complete the Future with the price.
+    1. Otherwise, complete the Future exceptionally with the Exception that caused the failure.
+    
+    _(solution in branch `exercise-16.2.2`)_
 
 
 

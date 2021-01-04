@@ -6,7 +6,7 @@ import java.util.concurrent.Future;
 
 import static com.excella.modernjava.shop.FakeLongRunningOp.delay;
 
-public class Shop {
+public class AsyncShop {
     /// ### 16.2.2: Error handling added manually for demonstration, then refactored to CompleteableFuture factory method below
 
     //    public Future<Double> getPriceAsync(String product) {
@@ -22,7 +22,7 @@ public class Shop {
     //        }).start();
     //        return futurePrice;
     //    }
-    public Future<Double> getPriceAsync(String product) {
+    public Future<Double> getPrice(String product) {
         return CompletableFuture.supplyAsync(() -> calculatePrice(product));
     }
 
@@ -31,4 +31,5 @@ public class Shop {
         var random = new Random();
         return random.nextDouble() * product.charAt(0) + product.charAt(1);
     }
+
 }

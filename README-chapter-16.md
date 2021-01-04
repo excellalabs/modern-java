@@ -131,8 +131,21 @@ Homework, follow steps in this section, and implement it in this solution (see s
     
     _(solution in branch `exercise-16.2.2`)_
 
+1. 16.2.3 Making your code non-blocking (code against blocking APIs)
 
+    Suppose that you have no control of the API implemented by the Shop class and that it provides only synchronous blocking methods.
+    
+    All the shops you have to query only provide a synchronous API (see beginning of 16.2). Do it without blocking:
 
+    1. Implement a method with the following signature, which, given the name of a product, returns a list of strings. Each string contains the name of a shop and the price of the requested product in that shop, as follows:
+    
+        ```
+        public List<String> findPrices(String product);return
+        ```
+       
+    
+       
+    
 ## SUMMARY
 
 [Continue to next chapter](README-chapter-17.md)

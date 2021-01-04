@@ -4,9 +4,9 @@ import java.util.concurrent.Future;
 
 public class ShopClient {
     public static void run() {
-        Shop shop = new Shop();
+        AsyncShop shop = new AsyncShop();
         long start = System.nanoTime();
-        Future<Double> futurePrice = shop.getPriceAsync("my favorite product");
+        Future<Double> futurePrice = shop.getPrice("my favorite product");
         long invocationTime = ((System.nanoTime() - start) / 1_000_000);
         System.out.println("Invocation returned after " + invocationTime + " msecs");
         // Do some more tasks, like querying other shops, // while the price of the product is being calculated
@@ -20,4 +20,5 @@ public class ShopClient {
         long retrievalTime = ((System.nanoTime() - start) / 1_000_000);
         System.out.println("Price returned after " + retrievalTime + " msecs");
     }
+
 }

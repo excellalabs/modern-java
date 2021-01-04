@@ -120,6 +120,7 @@ Homework, follow steps in this section, and implement it in this solution (see s
     Key points:
     - clients should use overloaded `get` method to pass timeout
     - propagate the Exception that caused the problem inside the `CompletableFuture` through its `completeExceptionally` method
+    - refactor to CompleteableFuture factory method `supplyAsync` which handles errors too
 
     Exceptions and unhandled, so will remain confined in the thread which is trying to calculate the product price, so kills it. This will block the client waiting for the result forever. 
     

@@ -149,10 +149,25 @@ Homework, follow steps in this section, and implement it in this solution (see s
     
 1. 16.3.2 Making asynchronous requests with CompletableFutures
        
-    Make the above better by turning all the synchronous invocations into asychronous ones using `CompleteableFutures`:
+    1. Make the above better by turning all the synchronous invocations into asychronous ones using `CompleteableFutures`
     
-    1. 
+    1. Use two separate streams to avoid lazy nature of streams from making it run sequentially. See _Figure 16.2_.  
+   
+    `parallelStreams` in previous section performed better, because it was running 1 shop on each thread.  
+    - Adding 5th shop makes them closer, adding a second since each shop query takes 1 second and this new one doesn't have a dedicated thread, so waits.
+    - CompleteableFuture version is a little faster than the parallelStreams version with 5 shops, but not much. 
+    - However you can customize the CompleteableFuture for your thread count needs...
+
+1. 16.3.4. Using a custom Executor
+
+- see **Sizing Thread Pools** for key advice & formula for when this is needed for using CPU efficiently, not waiting too long while not causing more overhead than it's worth with too much context switching
+- After this improvement, the CompletableFutures solution takes 1021 milliseconds to process five shops and 1022 milliseconds to process nine shops
+
+    1. Create a custom executor 
+    1. Add it to the `supplyAsync` call for finding prices 
     
+
+
 ## SUMMARY
 
 [Continue to next chapter](README-chapter-17.md)

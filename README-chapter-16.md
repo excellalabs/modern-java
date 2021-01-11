@@ -1,10 +1,6 @@
 **SESSION 24**
 
-<<<<<<< HEAD
-_[Recording]()_
-=======
 _[Recording](https://excella.zoom.us/rec/share/bU0Ov3I8g91Xr0QbfCZ37MQ_67UnZCxOe0Cnz5JqxRARhaC3XqxbUFiJ0oeSq_Ed.rIny4MwJ1xK-pCC6)_
->>>>>>> master
 
 **Agenda**
 
@@ -12,15 +8,10 @@ _[Recording](https://excella.zoom.us/rec/share/bU0Ov3I8g91Xr0QbfCZ37MQ_67UnZCxOe
 - **Recap**
     - Went over [Other Key Reactive Resources](https://github.com/excellalabs/modern-java/blob/master/README-chapter-15.md#other-key-reactive-resources)
 - **Today:** 
-<<<<<<< HEAD
     - Go over _Other Key Reactive Resources_
     - _Review_ chapter 16 content, start 17
         - Areas people thought were interesting, hard to understand 
-=======
     - Chapter 16 - CompletableFutures
-    
->>>>>>> master
-    - Chapter 16 Code exercise (16.2)
 - **For Next time:** 
     - We will quickly review through 16 code exercise
     - Finish reading Chapter 17 (Reactive programming)

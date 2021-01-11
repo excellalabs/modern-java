@@ -254,28 +254,6 @@ Add centralized discount service
     - allows you to easily combine and compose various synchronous and asynchronous tasks to perform a complex operation in the most effective way 
 - See _Listing 16.18_ for a tangible idea of the code-readability benefits
 
-    
-<<<<<<< HEAD
-    
-=======
-
-1. 16.2.1. Converting a synchronous method into an asynchronous one
-      
-    For the purposes of learning how to design an asynchronous API, pretend to be on the other side of the barricade. You’re a wise shop owner who realizes how painful this synchronous API is for its users, and you want to rewrite it as an asynchronous API to make your customers’ lives easier. We're simulating when the consumer of this API invokes this method, it remains blocked and then is idle for 1 second while waiting for its synchronous completion. 
-            
-    Wrap synchronous API:
-    1. Create the CompletableFuture that will contain the result of the computation.
-    1. Execute the computation asynchronously in a different Thread.
-    1. Set the value returned by the long computation on the Future when it becomes available.
-    1. Return the Future without waiting for the computation of the result it contains to be completed.
-    
-    Shop client: 
-    1. Query the shop to retrieve the price of a product.
-    1. Read the price from the Future or block until it becomes available.
-
->>>>>>> master
-
-
 ## SUMMARY
 
 [Continue to next chapter](README-chapter-17.md)

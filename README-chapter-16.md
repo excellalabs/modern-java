@@ -1,6 +1,6 @@
 **SESSION 24**
 
-_[Recording]()_
+_[Recording](https://excella.zoom.us/rec/share/bU0Ov3I8g91Xr0QbfCZ37MQ_67UnZCxOe0Cnz5JqxRARhaC3XqxbUFiJ0oeSq_Ed.rIny4MwJ1xK-pCC6)_
 
 **Agenda**
 
@@ -161,6 +161,22 @@ Homework, follow steps in this section, and implement it in this solution (see s
     
     _(solution in branch `exercise-16.3.2`)_
 
+**SESSION 25**
+
+_[Recording]()_
+
+**Agenda**
+
+- **Housekeeping**: notes & code, expensing food, start recording
+- **Recap**
+    - Started going over 16.2 exercise
+- **Today:** 
+    - Review "**important skills**" above for the 16.2+ exercises
+    - Finish above
+    - If time, start chapter 17 - Reactive Programming
+- **For Next time:** 
+    - Try 17.2.1 code exercise 
+    
 1. 16.3.4. Using a custom Executor
 
     - see **Sizing Thread Pools** for key advice & formula for when this is needed for using CPU efficiently, not waiting too long while not causing more overhead than it's worth with too much context switching
@@ -209,6 +225,22 @@ Homework, follow steps in this section, and implement it in this solution (see s
 - See _Listing 16.18_ for a tangible idea of the code-readability benefits
 
     
+
+1. 16.2.1. Converting a synchronous method into an asynchronous one
+      
+    For the purposes of learning how to design an asynchronous API, pretend to be on the other side of the barricade. You’re a wise shop owner who realizes how painful this synchronous API is for its users, and you want to rewrite it as an asynchronous API to make your customers’ lives easier. We're simulating when the consumer of this API invokes this method, it remains blocked and then is idle for 1 second while waiting for its synchronous completion. 
+            
+    Wrap synchronous API:
+    1. Create the CompletableFuture that will contain the result of the computation.
+    1. Execute the computation asynchronously in a different Thread.
+    1. Set the value returned by the long computation on the Future when it becomes available.
+    1. Return the Future without waiting for the computation of the result it contains to be completed.
+    
+    Shop client: 
+    1. Query the shop to retrieve the price of a product.
+    1. Read the price from the Future or block until it becomes available.
+
+
 
 ## SUMMARY
 

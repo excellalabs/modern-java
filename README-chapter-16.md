@@ -97,11 +97,7 @@ Along the way, you learn several **important skills**:
 
 ## 16.2. IMPLEMENTING AN ASYNCHRONOUS API
 
-<<<<<<< HEAD
 Homework, follow steps starting in this section continuing to the end of the chapter, and implement it in this solution (see section just above for review)
-=======
-Homework, follow steps in this section, and implement it in this solution (see section just above for review)
->>>>>>> master
 
 1. 16.2.1. Converting a synchronous method into an asynchronous one 
       
@@ -237,6 +233,8 @@ Add centralized discount service
     _(solution in branch `exercise-16.4.1`)_
     
 1. 16.4.4. Combining two CompletableFutures: dependent and independent
+
+_Navigate the finished code_ starting at `java/com/excella/modernjava/shop/BestPriceFinder.java`
 
 ## 16.4.5. Reflecting on Future vs. CompletableFuture
 

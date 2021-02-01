@@ -57,17 +57,9 @@ public class BestPriceFinder {
      */
     public List<String> findPricesAsync(String product) {
         List<CompletableFuture<String>> priceFutures = shops.stream()
-                // Query the shop asynchronously by passing a lambda expression to the supplyAsync factory method.
-                // The result of this first transformation is a Stream<CompletableFuture<String>>.
                 .map(shop -> CompletableFuture.supplyAsync(
                         () -> shop.getPrice(product), executor))
-                // thenApply used here, because invoking any remote service or doing any I/O in general.
-                // It can be performed almost instantaneously and can be done synchronously without introducing any delay.
-                // Note, it doesn’t block your code until the CompletableFuture on which you’re invoking it is complete.
                 .map(future -> future.thenApply(Quote::parse))
-                // Additional async operation, uses thenCompose, allowing you to pipeline two asynchronous operations,
-                // passing the result of the first operation to the second operation when it becomes available.
-                // Main thread not blocked, offer some UI updates!
                 .map(future -> future.thenCompose(quote ->
                         CompletableFuture.supplyAsync(
                                 () -> Discount.applyDiscount(quote), executor)))

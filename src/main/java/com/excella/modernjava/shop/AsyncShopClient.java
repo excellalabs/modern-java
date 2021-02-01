@@ -9,6 +9,7 @@ public class AsyncShopClient {
         Future<Double> futurePrice = shop.getPrice("my favorite product");
         long invocationTime = ((System.nanoTime() - start) / 1_000_000);
         System.out.println("Invocation returned after " + invocationTime + " msecs");
+
         // Do some more tasks, like querying other shops, // while the price of the product is being calculated
         //doSomethingElse();
         try {

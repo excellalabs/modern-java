@@ -2,6 +2,7 @@ package com.excella.modernjava;
 
 import com.excella.modernjava.shop.AsyncShopClient;
 import com.excella.modernjava.shop.BestPriceFinderClient;
+import com.excella.modernjava.tempinfo.TempInfoClient;
 
 public class Application {
 
@@ -24,5 +25,7 @@ public class Application {
         AsyncShopClient.run();
 
         BestPriceFinderClient.run();
+
+        TempInfoClient.runTempInfo();
     }
 }

@@ -98,4 +98,20 @@ The Java 9 Flow specification defines a set of rules through which the implement
 
 ## 17.2.1 Creating your first reactive application
 
-Homework! 
+Homework!
+
+1. 17.2.2 _Create a reactive application directly on top of the Java 9 Flow API_
+ 
+    - Get a feeling for how the four interfaces discussed in the preceding sections work together
+    - Write a simple temperature-reporting program using reactive principles. 
+    
+    This program has two components:
+       
+    `TempInfo`, which mimics a remote thermometer (constantly reporting randomly chosen temperatures between 0 and 99 degrees Fahrenheit, which is appropriate for U.S. cities most of the time)
+
+    `TempSubscriber`, which listens to these reports and prints the stream of temperatures reported by a sensor installed in a given city
+The first step is defining a simple class that conveys the currently reported temperature, as shown in the following listing.
+
+    Step 1: Define simple class for reported temperature (done for you in tempInfo/)
+    
+    

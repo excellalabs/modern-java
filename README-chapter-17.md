@@ -112,6 +112,20 @@ Homework!
     `TempSubscriber`, which listens to these reports and prints the stream of temperatures reported by a sensor installed in a given city
 The first step is defining a simple class that conveys the currently reported temperature, as shown in the following listing.
 
-    Step 1: Define simple class for reported temperature (done for you in tempInfo/)
+    Steps:
     
+    1. Check out branch `exercise-17.2.2` as it has the simple class for reported temperature (in tempInfo/)
+    1. Implement a Subscription for the temperatures of a given town that sends a temperature report whenever this report is requested by its Subscriber (in Listing 17.6)
+        1. Loops once per request made by the Subscriber
+        1. Sends the current temperature to the Subscriber
+        1. In case of a failure while fetching the temperature propagates the error to the Subscriber
+        1. If the subscription is canceled, send a completion (onComplete) signal to the Subscriber.
+    1. Create Subscriber that, every time it gets a new element, prints the temperatures received from the Subscription and asks for a new report (in Listing 17.7)
+        1. Stores the subscription and sends a first request
+        1. Prints the received temperature and requests a further one
+        1. Prints the error message in case of an error
+    1. Create a client to work with it, by creating a `Publisher` and then subscribe to it by using `TempScriber`
+        1. Creates a new Publisher of temperatures in New York and subscribes the TempSubscriber to it
+        1. Returns a Publisher that sends a TempSubscription to the Subscriber that subscribes to it
     
+    POP QUIZ 17.1: What is wrong with the above code that causes it to error out? Hint: StackOverflow (not the site)

@@ -1,14 +1,14 @@
 package com.excella.modernjava.tempinfo;
 
-import java.util.concurrent.Flow;
 import java.util.concurrent.Flow.Subscription;
+import java.util.concurrent.Flow.Subscriber;
 //import org.reactivestreams.Subscriber;
 
 public class TempSubscription implements Subscription {
-    private final Flow.Subscriber<? super TempInfo> subscriber;
+    private final Subscriber<? super TempInfo> subscriber;
     private final String town;
 
-    public TempSubscription(Flow.Subscriber<? super TempInfo> subscriber,
+    public TempSubscription(Subscriber<? super TempInfo> subscriber,
                             String town) {
         this.subscriber = subscriber;
         this.town = town;

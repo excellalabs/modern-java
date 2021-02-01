@@ -114,7 +114,7 @@ The first step is defining a simple class that conveys the currently reported te
 
     Steps:
     
-    1. Define simple class for reported temperature (done for you in tempInfo/)
+    1. Check out branch `exercise-17.2.2` as it has the simple class for reported temperature (in tempInfo/)
     1. Implement a Subscription for the temperatures of a given town that sends a temperature report whenever this report is requested by its Subscriber (in Listing 17.6)
         1. Loops once per request made by the Subscriber
         1. Sends the current temperature to the Subscriber

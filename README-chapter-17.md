@@ -71,10 +71,10 @@ The requirements and behavior that the Reactive Manifesto laid out were condense
 
 Java 9 adds one new class for reactive programming: java.util.concurrent.Flow. This class contains only static components and can’t be instantiated. The Flow class contains four nested interfaces to express the publish-subscribe model of reactive programming as standardized by the Reactive Streams project:
 
-Publisher
-Subscriber
-Subscription
-Processor
+* Publisher
+* Subscriber
+* Subscription
+* Processor
 
 - allows interrelated interfaces and static methods to establish flow-controlled components 
     - Publishers produce items consumed by one or more Subscribers, each managed by a Subscription
@@ -114,18 +114,46 @@ The first step is defining a simple class that conveys the currently reported te
 
     Steps:
     
-    1. Check out branch `exercise-17.2.2` as it has the simple class for reported temperature (in tempInfo/)
-    1. Implement a Subscription for the temperatures of a given town that sends a temperature report whenever this report is requested by its Subscriber (in Listing 17.6)
+    _Part 1_
+    
+    1. Check out branch `exercise-17.2.2` as it has the simple class for reported temperature in `tempInfo/`, which is also where the rest of the code goes
+    1. **Implement a Subscription** for the temperatures of a given town that sends a temperature report whenever this report is requested by its Subscriber (in Listing 17.6)
         1. Loops once per request made by the Subscriber
         1. Sends the current temperature to the Subscriber
         1. In case of a failure while fetching the temperature propagates the error to the Subscriber
         1. If the subscription is canceled, send a completion (onComplete) signal to the Subscriber.
-    1. Create Subscriber that, every time it gets a new element, prints the temperatures received from the Subscription and asks for a new report (in Listing 17.7)
+    1. **Create a Subscriber** that, every time it gets a new element, prints the temperatures received from the Subscription and asks for a new report (in Listing 17.7)
         1. Stores the subscription and sends a first request
         1. Prints the received temperature and requests a further one
         1. Prints the error message in case of an error
-    1. Create a client to work with it, by creating a `Publisher` and then subscribe to it by using `TempScriber`
-        1. Creates a new Publisher of temperatures in New York and subscribes the TempSubscriber to it
+    1. **Create a client** to work with it, by creating a `Publisher` and then subscribe to it by using `TempScriber`
+        1. Creates a new Publisher, of temperatures in New York and subscribes the TempSubscriber to it
         1. Returns a Publisher that sends a TempSubscription to the Subscriber that subscribes to it
     
-    POP QUIZ 17.1: What is wrong with the above code that causes it to error out? Hint: StackOverflow (not the site)
+    _POP QUIZ_ 17.1: What is wrong with the above code that causes it to error out? Hint: StackOverflow (not the site)
+    
+    _Notice_, the methods on the foundational interfaces:
+    
+    * Publisher
+        - subscribe(Subscriber<? super T> subscriber)
+    * Subscriber
+        - onSubscribe(Subscription subscription)
+        - onNext(T item)
+        - onComplete()
+        - onError(Throwable throwable)
+    * Subscription
+        - request(long n)
+        - cancel()
+    * Processor
+   
+   ```
+             Publisher                           Subscriber
+      
+      --->   - subscribe(subscriber)
+             - new Subscription.request(n) 
+                                           --->  - onSubscribe(subscription)
+                                           --->  - onNext(item)
+                                           --->  - onCompelete()
+                                           --->  - onError(throwable)                 
+    ```
+        

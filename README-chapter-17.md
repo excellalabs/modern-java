@@ -63,9 +63,10 @@ The main difference between reactive **applications** and **systems** is that
 ## 17.2. REACTIVE STREAMS AND THE FLOW API
 
 The requirements and behavior that the Reactive Manifesto laid out were condensed into the [Reactive Streams project](www.reactive-streams.org)
-- involved engineers from Netflix, Red Hat, Twitter, Lightbend, and other companies
-- produced the definition of four interrelated interfaces representing the minimal set of features that any Reactive Streams implementation has to provide
+- Involved engineers from Netflix, Red Hat, Twitter, Lightbend, and other companies
+- Produced the definition of four interrelated interfaces representing the minimal set of features that any Reactive Streams implementation has to provide
 - These interfaces are now part of Java 9, nested within the new java.util.concurrent.Flow class, and implemented by many third-party libraries, including Akka Streams (Lightbend), Reactor (Pivotal), RxJava (Netflix), and Vert.x (Red Hat)
+- The core idea of the Flow API is asynchronous stream processing via the publish-subscribe protocol
 
 ### 17.2.1. Introducing the Flow class
 
@@ -114,8 +115,6 @@ The first step is defining a simple class that conveys the currently reported te
 
     Steps:
     
-    _Part 1_
-    
     1. Check out branch `exercise-17.2.2` as it has the simple class for reported temperature in `tempInfo/`, which is also where the rest of the code goes
     1. **Implement a Subscription** for the temperatures of a given town that sends a temperature report whenever this report is requested by its Subscriber (in Listing 17.6)
         1. Loops once per request made by the Subscriber
@@ -156,4 +155,14 @@ The first step is defining a simple class that conveys the currently reported te
                                            --->  - onCompelete()
                                            --->  - onError(throwable)                 
     ```
+    
+1. 17.2.3 Implement a Processor
+
+    Both a `Subscriber` and a `Publisher`, it’s intended to 
+        1. subscribe to a Publisher
+        1. republish the data that it receives after transforming that data
+    
+    Steps:
         
+    1. implement a Processor that subscribes to a Publisher that emits temperatures in Fahrenheit and republishes them after converting them to Celsius (answer: 17.10)
+

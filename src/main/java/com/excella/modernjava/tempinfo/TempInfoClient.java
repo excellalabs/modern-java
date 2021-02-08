@@ -10,7 +10,10 @@ public class TempInfoClient {
 
     private static Publisher<TempInfo> getTemperatures(String town) {
         // 2. Returns a Publisher that sends a TempSubscription to the Subscriber that subscribes
-        return subscriber -> subscriber.onSubscribe(
-                new TempSubscription(subscriber, town));
+        return subscriber -> {
+            TempProcessor processor = new TempProcessor();
+            processor.subscribe(subscriber);
+            processor.onSubscribe(new TempSubscription(processor, town));
+        };
     }
 }

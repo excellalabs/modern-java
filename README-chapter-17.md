@@ -143,7 +143,7 @@ The first step is defining a simple class that conveys the currently reported te
     * Subscription
         - request(long n)
         - cancel()
-    * Processor
+    * Processor implements Publisher and Subscriber 
    
    ```
              Publisher                           Subscriber
@@ -166,3 +166,74 @@ The first step is defining a simple class that conveys the currently reported te
         
     1. implement a Processor that subscribes to a Publisher that emits temperatures in Fahrenheit and republishes them after converting them to Celsius (answer: 17.10)
 
+## 17.3. USING THE REACTIVE LIBRARY RXJAVA
+
+- RxJava provides two classes, both of which implement Flow.Publisher:
+    - `io.reactivex.Flowable`, which includes the reactive pull-based backpressure feature of Java 9 Flow (using request)
+    - `io.reactivex.Observable`, which didn’t support backpressure. 
+        - simpler to program and more appropriate for user-interface events (such as mouse movements)
+        - use when you have a stream of <1000 events or GUI events
+    
+- Here we'll implement an `Observable` since we worked with Flowable above.
+    - In RxJava, the `Observable` plays the role of the `Publisher` in the Flow API
+    - So the `Observer` similarly corresponds to Flow’s `Subscriber` interface
+    
+Implementations in RxJava
+
+* Publisher = Observable = Flowable (backpressure)
+    - Single, Completeable
+* Subscriber = Observer
+    - Maybe
+* Subscription?
+* Processor?
+
+Hierarchy
+
+```
+    Observable 
+    /        \
+Single     Completable
+
+
+    Flowable
+    /      \
+ Maybe     Completable
+
+
+   Flux
+  /
+Mono / Completeable?
+```  
+
+- `Observable` - generic ReactiveX building block that emits values over time
+- `Single` - use when you have a task-oriented Observable and you expect a single value, i.e. DB fetch operation
+- `Completeable` - when you don't care about the return value or there isn't any. Terminal events only, onError & onCompleted, i.e. updating cache
+
+`Maybe` 
+- introduced in RxJava 2
+- can be thought of as a method that returns Optional of some type, Optional and can either have some value exactly like Single or have return nothing - just like Completable. 0 or 1 elements. 
+- when we want to mark that an Observable might not have a value and will just complete
+- I.E.:
+    - fetch from a cache - we'll not necessarily have a value so we will complete when not, and will call onNext to try to get the value. 
+    - handling non-null values in a stream with RxJava2
+
+`Flowable`
+- introduced in RxJava 2
+- use instead of `Observable` when needing backpressure support
+
+
+### 17.3.1. Creating and using an Observable
+    
+```
+Observable<Long> onePerSec = Observable.interval(1, TimeUnit.SECONDS);
+``` 
+- Plan to use onePerSec as the basis of another Observable that emits the temperature reported for a given town each second.
+
+RxJava has overloads, one which lets you subscribe to an Observable, for example, by passing a lambda expression with the signature of the onNext method and omitting the other three methods. Other methods defaulting to a no-op for completion and error handling: 
+
+```
+onePerSec.subscribe(i -> System.out.println(TempInfo.fetch( "New York" )));
+```
+
+
+    

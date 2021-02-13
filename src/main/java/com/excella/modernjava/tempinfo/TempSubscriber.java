@@ -1,11 +1,10 @@
 package com.excella.modernjava.tempinfo;
 
-import java.util.concurrent.Flow;
 import java.util.concurrent.Flow.Subscriber;
 import java.util.concurrent.Flow.Subscription;
 
 public class TempSubscriber implements Subscriber<TempInfo> {
-    private Flow.Subscription subscription;
+    private Subscription subscription;
 
     @Override
     public void onSubscribe(Subscription subscription) {

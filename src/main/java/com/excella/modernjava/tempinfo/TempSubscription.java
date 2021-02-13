@@ -1,5 +1,7 @@
 package com.excella.modernjava.tempinfo;
 
+import io.reactivex.rxjava3.core.Maybe;
+
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Flow.Subscription;
@@ -21,6 +23,7 @@ public class TempSubscription implements Subscription {
 
     @Override
     public void request(long n) {
+        Maybe maybe;
         executor.submit(() -> { // Sends the next elements to the subscriber from a different thread, to prevent stackoverflow (see quiz 17.1)
             for (long i = 0L; i < n; i++) {
                 try {

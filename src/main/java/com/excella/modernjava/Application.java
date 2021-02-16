@@ -22,10 +22,12 @@ public class Application {
         //
         //        DateAndTimeAPIHarness.run();
 
-        AsyncShopClient.run();
-
-        BestPriceFinderClient.run();
-
-        TempInfoClient.runTempInfo();
+        // Chapter 16 - Completeablefuture 
+        //AsyncShopClient.run();
+        //BestPriceFinderClient.run();
+        
+        // Chapter 17 - Reactive & RxJava
+        //TempInfoClient.runTempInfo();
+        com.excella.modernjava.tempinfo.rxjava.TempInfoClient.runTempInfoRxJava();
     }
 }

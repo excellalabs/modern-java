@@ -131,6 +131,22 @@ The first step is defining a simple class that conveys the currently reported te
     
     _POP QUIZ_ 17.1: What is wrong with the above code that causes it to error out? Hint: StackOverflow (not the site)
     
+    ** Session 26
+    
+    _[Recording]()_
+    
+    **Agenda**
+    
+    - **Housekeeping**: notes & code, expensing food, start recording
+    - **Recap**
+        - 17 key concepts, started 17 coding
+    - **Today:** 
+        - Finish 17 coding
+        - If time, start chapter 18
+    - **For Next time:** 
+        - chapter 18 - Thinking functionally
+        - chapter 19 - Functional programming techniques
+    
     _Notice_, the methods on the foundational interfaces:
     
     * Publisher
@@ -190,15 +206,21 @@ Implementations in RxJava
 Hierarchy
 
 ```
+RxJava 
+
     Observable 
     /        \
 Single     Completable
 
 
+RxJava 2
+
     Flowable
     /      \
  Maybe     Completable
 
+
+Reactor 
 
    Flux
   /
@@ -224,16 +246,12 @@ Mono / Completeable?
 
 ### 17.3.1. Creating and using an Observable
     
-```
-Observable<Long> onePerSec = Observable.interval(1, TimeUnit.SECONDS);
-``` 
-- Plan to use onePerSec as the basis of another Observable that emits the temperature reported for a given town each second.
+Do coding in seection in `src/main/java/com/excella/modernjava/tempinfo/rxjava`
 
-RxJava has overloads, one which lets you subscribe to an Observable, for example, by passing a lambda expression with the signature of the onNext method and omitting the other three methods. Other methods defaulting to a no-op for completion and error handling: 
-
-```
-onePerSec.subscribe(i -> System.out.println(TempInfo.fetch( "New York" )));
-```
+### 17.3.2
 
 
-    
+
+
+
+

@@ -142,6 +142,7 @@ The first step is defining a simple class that conveys the currently reported te
         - 17 key concepts, started 17 coding
     - **Today:** 
         - Finish 17 coding
+        - Review lambdas, streams, and concurrency topics in Effective Java
         - If time, start chapter 18
     - **For Next time:** 
         - chapter 18 - Thinking functionally
@@ -248,10 +249,16 @@ Mono / Completeable?
     
 Do coding in seection in `src/main/java/com/excella/modernjava/tempinfo/rxjava`
 
-### 17.3.2
+### 17.3.2 Transforming and combining Observables
 
+- RxJava and other reactive libraries provide functions to combine, create, and filter any of those streams
+- Marble diagrams help understand (visualize) complexity. 
+- _See Figure 17.4_ and following for merge and map
 
+Do Quiz 17.2:  Filtering only negative temperatures by merge and map
 
+The filter method of the Observable class takes a Predicate as an argument and produces a second Observable that emits only the elements that pass the test defined by that Predicate. Suppose that you’ve been asked to develop a warning system that alerts the user when there’s risk of ice. How can you use this operator to create an Observable that emits the temperature in Celsius registered in a town only in case the temperature is below zero? (The Celsius scale conveniently uses zero for the freezing point of water.)
 
+Summary
 
-
+[Continue to next chapter](README-chapter-18.md)

@@ -13,6 +13,9 @@ public class TempInfoClient {
         // More production-like, 17.14
         Observable<TempInfo> observable = getTemperature("New York");
         observable.blockingSubscribe(new TempObserver());
+
+        Observable<TempInfo> observableCelsius = getTemperatureCelsius("New York");
+        observableCelsius.blockingSubscribe(new TempObserver());
     }
 
     private static void runTempInfoBasic() {
@@ -60,26 +63,10 @@ public class TempInfoClient {
                 }));
     }
 
-    private static void test(String town) {
-
-        var intervalObservable = Observable.interval(1, TimeUnit.SECONDS);
-        var observeObservable = Observable.create(emitter -> intervalObservable.subscribe(
-
-                i -> {
-                        if (i >= 5) {
-                            emitter.onComplete();
-                        }
-                        else {
-                            try {
-                                emitter.onNext(TempInfo.fetch(town)); // send temp to the Observer
-                            }
-                            catch (Exception e) {
-                                emitter.onError(e);
-                            }
-                        }
-            }
-
-        ));
+    private static Observable<TempInfo> getTemperatureCelsius(String town) {
+        return getTemperature("New York")
+                .map(temp -> new TempInfo(temp.getTown(),
+                                    (temp.getTemp() - 32) * 5/9));
     }
 
 }

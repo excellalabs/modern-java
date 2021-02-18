@@ -883,6 +883,8 @@ Micronaut uses RxJava 2 by default, but also includes other reactive libraries. 
 Reactive Streams interfaces (not Flow) <- Micronaut for the reactive-enabled web framework -> RxJava for the reactive implementation -> Netty for the non-blocking web server -> Nio Java non-blocking I/O libraries
 ```
 
-Micronaut and ORMs - it doesn't seem like micronaut prescribes an ORM in their docs OOTB, but GORM for Hibernate seems to be typical and they also have a driver for classic Hibernate/JPA (as well as GORM for Mongo & Neo4j, Lettuce for Redis, etc), https://docs.micronaut.io/latest/guide/index.html#dataAccess
+Micronaut and ORMs - Micronaut has its own framework, Micronaut Data, read more [here](https://micronaut-projects.github.io/micronaut-data/latest/guide/index.html).
+
+They also have a driver for GORM for Hibernate which seems common and they also have a driver for classic Hibernate/JPA (as well as GORM for Mongo & Neo4j, Lettuce for Redis, etc), https://docs.micronaut.io/latest/guide/index.html#dataAccess
 
 [Continue](README-chapter-16.md)

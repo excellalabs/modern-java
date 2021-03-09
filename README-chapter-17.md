@@ -131,7 +131,7 @@ The first step is defining a simple class that conveys the currently reported te
     
     _POP QUIZ_ 17.1: What is wrong with the above code that causes it to error out? Hint: StackOverflow (not the site)
     
-    ** Session 26
+    **Session 26**
     
     _[Recording]()_
     

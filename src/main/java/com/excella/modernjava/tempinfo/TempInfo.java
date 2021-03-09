@@ -15,8 +15,8 @@ public class TempInfo {
 
     public static TempInfo fetch(String town) {
         // Comment if you want to see the stackoverflow referenced in Quiz 17.1
-        if (random.nextInt(10) == 0)
-            throw new RuntimeException("Error!");
+//        if (random.nextInt(10) == 0)
+//            throw new RuntimeException("Error!");
         return new TempInfo(town, random.nextInt(100));
     }
 

@@ -11,8 +11,8 @@ public class TempInfoClient {
         //runTempInfoBasic();
 
         // More production-like, 17.14
-        Observable<TempInfo> observable = getTemperature("New York");
-        observable.blockingSubscribe(new TempObserver());
+//        Observable<TempInfo> observable = getTemperature("New York");
+//        observable.blockingSubscribe(new TempObserver());
 
         Observable<TempInfo> observableCelsius = getTemperatureCelsius("New York");
         observableCelsius.blockingSubscribe(new TempObserver());
@@ -25,6 +25,7 @@ public class TempInfoClient {
         // NOTE: RxJava’s API are more flexible (have more overloaded variants) than the native Java 9 Flow API.
         //       I.E. You can subscribe to an Observable by passing a lambda expression with the signature of the onNext method and omitting the other 3 methods.
         //onePerSecond.subscribe(l -> System.out.println(TempInfo.fetch("New York")));
+
         // Use above in production, but for demoing, since the main method terminates immediately, you don't see any output
         // as the Observeable is executed on RxJava's computation thread pool, which is make of daemon threads
         onePerSecond.blockingSubscribe(x -> System.out.println(TempInfo.fetch("New York")));
@@ -48,8 +49,8 @@ public class TempInfoClient {
      */
     public static Observable<TempInfo> getTemperature(String town) {
         return Observable.create(emitter ->
-                Observable.interval(1, TimeUnit.SECONDS).subscribe(i -> {  // when subscribing, you pass the onNext
-                        if (i >= 5) {
+                Observable.interval(1, TimeUnit.MILLISECONDS).subscribe(i -> {  // when subscribing, you pass the onNext
+                        if (i >= 50) {
                             emitter.onComplete();
                         }
                         else {
@@ -63,10 +64,11 @@ public class TempInfoClient {
                 }));
     }
 
+    // Quiz 17.2
     private static Observable<TempInfo> getTemperatureCelsius(String town) {
         return getTemperature("New York")
                 .map(temp -> new TempInfo(temp.getTown(),
-                                    (temp.getTemp() - 32) * 5/9));
+                                    (temp.getTemp() - 3200) * 5/9));
     }
 
 }

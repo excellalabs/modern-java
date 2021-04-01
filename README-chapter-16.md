@@ -164,7 +164,7 @@ Homework, follow steps starting in this section continuing to the end of the cha
 
 **SESSION 25**
 
-_[Recording]()_
+_[Recording](https://excella.zoom.us/rec/share/iZviWqSqUvIxh5pZWqiLxmUIAFGHi74hem4sO8qCyMSWkB0aSrOaDZ9eZsYPu2JZ.Gckz7N0qqNPpf0NV)_
 
 **Agenda**
 

@@ -1,8 +1,8 @@
 # Chapter 19. Functional programming techniqiues
 
-**Session 28**
+**Session 29**
 
-_[Recording]()_
+_[Recording](https://excella.zoom.us/rec/share/brpIHv0t2nvLhlMUdz4YCLvcE7-sEi8deGGRGXIcf_hC5avLswtp9qnIdu0vPt0L.d9Lu-9qdQL_QvNqY)_
 
 **Agenda**
 
@@ -15,10 +15,8 @@ _[Recording]()_
     - chapter 20 - Blending OOP and FP: Comparing Java and Scala
     - chapter 21 - Conclusions and what's next for Java
     
-This chapter covers
+This session is covered in Jupyter notebooks: 
+- [Chapter 19 notebook](Chapter_19.ipynb)
+- [Chapter 19 notebook - Scala examples](Chapter_19_scala_examples.ipynb)
 
-
-
-Summary
-
-[Continue to next chapter](README-chapter-19.md)
+[Continue to next chapter](README-chapter-20.md)

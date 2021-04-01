@@ -5,15 +5,15 @@ Below you will find:
 * [Sessions](#Sessions)
 * [Environment Setup](#Environment-Setup)
 
-## Overview 
+## Overview  
 
-### Modern programming anyone? 
+This was a dive deep into modern programming via a book club for [Modern Java in Action](https://learning.oreilly.com/library/view/modern-java-in/9781617293566/). It dives deep into Functional Reactive Programming (FRP), including lambdas, streams, and practical functional and concurrency approaches in depth.  
 
-Let's dive deep into modern programming, using the book [Modern Java in Action](https://learning.oreilly.com/library/view/modern-java-in/9781617293566/) (feel free to expense or get via O'Reilly Learning). We will dive deep into Functional Reactive Programming (FRP), including lambdas, streams, and practical functional and concurrency approaches in depth.  
+Chapter notes, code and videos (30 sessions!) are available here.
 
 ### Who? 
 
-We will start from general programming knowledge, so no previous FRP knowledge is required, and even if you're experienced with it, we will dive deep so you may fill in some gaps. 
+General programming knowledge is required, but no previous FRP knowledge is required, and even if you're experienced with it, we will dive deep so you may fill in some gaps. 
 
 ### Why this topic? 
 
@@ -23,7 +23,7 @@ This topic encompasses the core skills needed by modern Java engineers.
 
 ### The Format
 
-People are expected to read the chapters ahead of time, and we will review & discuss key concepts in the sessions. Coding will be reviewed, but actual coding should be done as a supplement to reinforce the ideas but in our own time. Code from the chapters is in this repo, which should be understood and ideally gone through individually from scratch.
+People read the chapters ahead of time, and we reviewed & discussed key concepts in the sessions. Coding will be reviewed, but actual coding was to be done as a supplement to reinforce the ideas in our own time. Code from the chapters is in this repo, which should be understood and ideally gone through individually from scratch.
 
 ### The book
 
@@ -78,6 +78,9 @@ People are expected to read the chapters ahead of time, and we will review & dis
 * [Chapter 15](README-chapter-15.md)
 * [Chapter 16](README-chapter-16.md)
 * [Chapter 17](README-chapter-17.md)
+* [Chapter 18](README-chapter-18.md)
+* [Chapter 19](README-chapter-19.md)
+* [Chapter 20](README-chapter-20.md)
 
 ## Environment Setup
 

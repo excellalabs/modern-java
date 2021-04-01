@@ -133,7 +133,7 @@ The first step is defining a simple class that conveys the currently reported te
     
     **Session 26**
     
-    _[Recording]()_
+    _[Recording](https://excella.zoom.us/rec/share/TGWH0A9x_j3QQsNRVa8o5B2JHxIIr76bCahQf3fw0AyNksSFd0rtEZieJNLIf9HO.MhPbBi7sPsXdip2A)_
     
     **Agenda**
     

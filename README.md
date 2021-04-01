@@ -32,22 +32,17 @@ People read the chapters ahead of time, and we reviewed & discussed key concepts
 ### Outline:
 
 - Part 1: Programming has changed - with functional reactive programming (passing code with behavior parameterization, and lambda expressions)
-    - 1-3 (5 sessions)
+    - 1-3
 - Part 2: Using streams when working with data, with parallel benefits
-    - 4-10 (? sessions)
+    - 4-10
 - Part 3: Modern language constructs to improve code - Optionals, default functions, etc.
-    - 11-14 (? sessions)
+    - 11-14
 - Part 4: Reactive programming for more concise concurrency
-    - 15-17 (? sessions)
+    - 15-17
 - Part 5: Working with functional programming techniques
-    - 18-21 (? sessions)
+    - 18-21
 
-## Sessions
-
-- **Mondays at 5:30**
-- *See **#modern-java-in-action** for invite/zoom & upcoming agenda*
-
-### Session Agendas & Notes:
+## Session Agendas & Notes:
 
 * Chapter 1
     * [Session 1](README-chapter-01.md#Session-1)
